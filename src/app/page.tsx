@@ -6,41 +6,45 @@ import type { VariantId, Difficulty, CategoryId } from '@/types/game'
 import { GameRegistry } from '@/game-registry'
 import { getCategoryCounts } from '@/data'
 import { Badge } from '@/components/ui/Badge'
+import { useT } from '@/i18n'
 import { cn } from '@/lib/utils'
 
-const DIFFICULTIES: { id: Difficulty; label: string; desc: string; color: string }[] = [
-  { id: 'easy', label: 'Facile', desc: '2 choix • 30 sec', color: 'border-green-500 text-green-400' },
-  { id: 'medium', label: 'Intermédiaire', desc: '4 choix • 25 sec', color: 'border-yellow-500 text-yellow-400' },
-  { id: 'expert', label: 'Expert', desc: 'Texte libre • 45 sec', color: 'border-red-500 text-red-400' },
+const DIFFICULTIES: { id: Difficulty; color: string }[] = [
+  { id: 'easy',   color: 'border-green-500 text-green-500' },
+  { id: 'medium', color: 'border-yellow-500 text-yellow-500' },
+  { id: 'expert', color: 'border-red-500 text-red-500' },
 ]
 
-const CATEGORIES: { id: CategoryId; label: string; icon: string }[] = [
-  { id: 'all', label: 'Tout', icon: '🌍' },
-  { id: 'actors', label: 'Acteurs', icon: '🎬' },
-  { id: 'musicians', label: 'Musiciens', icon: '🎵' },
-  { id: 'athletes', label: 'Sportifs', icon: '🏆' },
-  { id: 'politicians', label: 'Politiciens', icon: '🏛️' },
+const CATEGORIES: { id: CategoryId; icon: string }[] = [
+  { id: 'all',         icon: '🌍' },
+  { id: 'actors',      icon: '🎬' },
+  { id: 'musicians',   icon: '🎵' },
+  { id: 'athletes',    icon: '🏆' },
+  { id: 'politicians', icon: '🏛️' },
 ]
 
 export default function HomePage() {
   const router = useRouter()
+  const { t } = useT()
   const variants = GameRegistry.all()
   const counts = getCategoryCounts()
 
-  const [selectedVariant, setSelectedVariant] = useState<VariantId>('photo-to-name')
+  const [selectedVariant, setSelectedVariant]       = useState<VariantId>('photo-to-name')
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('easy')
-  const [selectedCategory, setSelectedCategory] = useState<CategoryId>('all')
+  const [selectedCategory, setSelectedCategory]     = useState<CategoryId>('all')
 
   const activeVariant = GameRegistry.get(selectedVariant)
-  const difficultySupported = activeVariant.supportedDifficulties.includes(selectedDifficulty)
 
   const handlePlay = () => {
-    const diff = difficultySupported ? selectedDifficulty : activeVariant.supportedDifficulties[0]
+    const diff = activeVariant.supportedDifficulties.includes(selectedDifficulty)
+      ? selectedDifficulty
+      : activeVariant.supportedDifficulties[0]
     router.push(`/play/${selectedVariant}/${diff}?category=${selectedCategory}`)
   }
 
   return (
     <div className="flex flex-col gap-10 animate-fade-in">
+
       {/* Hero */}
       <section className="text-center py-4">
         <div className="text-6xl mb-4" aria-hidden="true">🎭</div>
@@ -48,15 +52,14 @@ export default function HomePage() {
           Celebrity Quiz
         </h1>
         <p className="text-game-muted max-w-md mx-auto text-base">
-          Testez vos connaissances sur les célébrités du monde entier. Plusieurs modes
-          de jeu, plusieurs niveaux — à vous de jouer !
+          {t('home.hero_subtitle')}
         </p>
       </section>
 
       {/* Step 1 — Variant */}
       <section aria-labelledby="variant-heading">
         <h2 id="variant-heading" className="text-sm font-semibold text-game-muted uppercase tracking-widest mb-3">
-          1 · Mode de jeu
+          {t('home.step1')}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {variants.map((v) => (
@@ -67,23 +70,21 @@ export default function HomePage() {
               className={cn(
                 'flex flex-col gap-2 p-4 rounded-2xl border-2 text-left transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent',
                 selectedVariant === v.id
-                  ? 'border-game-accent bg-game-accent/10 shadow-lg shadow-indigo-500/20'
+                  ? 'border-game-accent bg-game-accent/10 shadow-lg shadow-indigo-500/10'
                   : 'border-game-border bg-game-card hover:border-game-accent/50'
               )}
             >
               <div className="flex items-start justify-between">
                 <span className="text-3xl">{v.icon}</span>
-                {selectedVariant === v.id && (
-                  <span className="text-game-accent text-lg">✓</span>
-                )}
+                {selectedVariant === v.id && <span className="text-game-accent text-lg">✓</span>}
               </div>
               <div>
-                <p className="font-bold text-game-text text-base">{v.label}</p>
-                <p className="text-game-muted text-sm mt-0.5">{v.description}</p>
+                <p className="font-bold text-game-text text-base">{t(`variant.${v.id}.label`)}</p>
+                <p className="text-game-muted text-sm mt-0.5">{t(`variant.${v.id}.description`)}</p>
               </div>
               <div className="flex flex-wrap gap-1 mt-1">
                 {v.supportedDifficulties.map((d) => (
-                  <Badge key={d} variant={d}>{d}</Badge>
+                  <Badge key={d} variant={d}>{t(`difficulty.${d}.label`)}</Badge>
                 ))}
               </div>
             </button>
@@ -94,7 +95,7 @@ export default function HomePage() {
       {/* Step 2 — Difficulty */}
       <section aria-labelledby="difficulty-heading">
         <h2 id="difficulty-heading" className="text-sm font-semibold text-game-muted uppercase tracking-widest mb-3">
-          2 · Difficulté
+          {t('home.step2')}
         </h2>
         <div className="grid grid-cols-3 gap-3">
           {DIFFICULTIES.map((d) => {
@@ -112,8 +113,8 @@ export default function HomePage() {
                     : 'border-game-border bg-game-card hover:border-game-accent/50 text-game-text'
                 )}
               >
-                <span className="font-bold text-sm sm:text-base">{d.label}</span>
-                <span className="text-xs text-game-muted">{d.desc}</span>
+                <span className="font-bold text-sm sm:text-base">{t(`difficulty.${d.id}.label`)}</span>
+                <span className="text-xs text-game-muted">{t(`difficulty.${d.id}.desc`)}</span>
               </button>
             )
           })}
@@ -123,7 +124,7 @@ export default function HomePage() {
       {/* Step 3 — Category */}
       <section aria-labelledby="category-heading">
         <h2 id="category-heading" className="text-sm font-semibold text-game-muted uppercase tracking-widest mb-3">
-          3 · Catégorie
+          {t('home.step3')}
         </h2>
         <div className="flex flex-wrap gap-2">
           {CATEGORIES.map((cat) => (
@@ -139,10 +140,8 @@ export default function HomePage() {
               )}
             >
               <span aria-hidden="true">{cat.icon}</span>
-              <span>{cat.label}</span>
-              <span className="text-game-muted text-xs">
-                ({counts[cat.id] ?? 0})
-              </span>
+              <span>{t(`category.${cat.id}`)}</span>
+              <span className="text-game-muted text-xs">({counts[cat.id] ?? 0})</span>
             </button>
           ))}
         </div>
@@ -152,27 +151,32 @@ export default function HomePage() {
       <div className="flex justify-center pb-4">
         <button
           onClick={handlePlay}
-          className="group px-10 py-4 bg-game-accent hover:bg-game-accent-hover text-white font-black text-xl rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent animate-pulse-glow"
-          aria-label={`Jouer en mode ${activeVariant.label}, difficulté ${selectedDifficulty}, catégorie ${selectedCategory}`}
+          className="px-10 py-4 bg-game-accent hover:bg-game-accent-hover text-white font-black text-xl rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent animate-pulse-glow"
+          aria-label={t('home.play_aria', {
+            variant: t(`variant.${selectedVariant}.label`),
+            difficulty: t(`difficulty.${selectedDifficulty}.label`),
+            category: t(`category.${selectedCategory}`),
+          })}
         >
-          Jouer maintenant →
+          {t('common.play_now')}
         </button>
       </div>
 
-      {/* Features */}
+      {/* Feature icons */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-game-border pt-8">
         {[
-          { icon: '🎮', title: '3 modes de jeu', desc: 'Photo, Nom ou Partie du corps' },
-          { icon: '🏆', title: '3 difficultés', desc: 'Facile, Intermédiaire, Expert' },
-          { icon: '🌍', title: '4 catégories', desc: 'Acteurs, Musiciens, Sportifs, Politiciens' },
+          { icon: '🎮', titleKey: 'home.features.modes_title', descKey: 'home.features.modes_desc' },
+          { icon: '🏆', titleKey: 'home.features.diff_title',  descKey: 'home.features.diff_desc'  },
+          { icon: '🌍', titleKey: 'home.features.cats_title',  descKey: 'home.features.cats_desc'  },
         ].map((f) => (
-          <div key={f.title} className="flex flex-col items-center text-center gap-2 p-4">
+          <div key={f.titleKey} className="flex flex-col items-center text-center gap-2 p-4">
             <span className="text-3xl">{f.icon}</span>
-            <h3 className="font-bold text-game-text">{f.title}</h3>
-            <p className="text-game-muted text-sm">{f.desc}</p>
+            <h3 className="font-bold text-game-text">{t(f.titleKey)}</h3>
+            <p className="text-game-muted text-sm">{t(f.descKey)}</p>
           </div>
         ))}
       </section>
+
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import type { GameRound, Difficulty } from '@/types/game'
+import { useT } from '@/i18n'
 import { cn } from '@/lib/utils'
 
 interface NameToPhotoProps {
@@ -20,6 +21,8 @@ export function NameToPhoto({
   correctSlug,
   chosenSlug,
 }: NameToPhotoProps) {
+  const { t } = useT()
+
   const getChoiceState = (slug: string) => {
     if (!disabled) return 'default'
     if (slug === correctSlug) return 'correct'
@@ -29,18 +32,14 @@ export function NameToPhoto({
 
   return (
     <div className="flex flex-col items-center gap-6 w-full animate-slide-up">
-      {/* Celebrity name to find */}
       <div className="text-center">
-        <p className="text-game-muted text-sm mb-2">Trouvez la photo de</p>
-        <h2 className="text-2xl sm:text-3xl font-bold text-game-text">
-          {round.target.name}
-        </h2>
+        <p className="text-game-muted text-sm mb-2">{t('game.find_photo')}</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-game-text">{round.target.name}</h2>
         {round.target.description && (
           <p className="text-game-muted text-sm mt-1">{round.target.description}</p>
         )}
       </div>
 
-      {/* Photo grid */}
       <div
         className={cn(
           'grid gap-3 w-full',
@@ -57,14 +56,13 @@ export function NameToPhoto({
               key={celebrity.slug}
               onClick={() => !disabled && onAnswer(celebrity.slug)}
               disabled={disabled}
-              aria-label={`Choisir cette photo`}
+              aria-label={t('game.find_photo')}
               aria-pressed={chosenSlug === celebrity.slug}
               className={cn(
                 'relative aspect-square rounded-2xl overflow-hidden border-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent',
-                state === 'correct' && 'border-green-500 scale-105 shadow-lg shadow-green-500/30',
-                state === 'wrong' && 'border-red-500 animate-shake',
-                state === 'default' &&
-                  'border-game-border hover:border-game-accent active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed'
+                state === 'correct' && 'border-green-500 scale-105 shadow-lg shadow-green-500/20',
+                state === 'wrong'   && 'border-red-500 animate-shake',
+                state === 'default' && 'border-game-border hover:border-game-accent active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed'
               )}
             >
               <Image

@@ -1,0 +1,107 @@
+{
+  "lang": {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "es": "Español",
+    "it": "Italiano"
+  },
+  "common": {
+    "play_now": "Jetzt spielen →",
+    "back_home": "← Startseite",
+    "loading": "Wird geladen…",
+    "validate": "Bestätigen",
+    "of": "/"
+  },
+  "home": {
+    "hero_subtitle": "Testen Sie Ihr Wissen über weltberühmte Persönlichkeiten. Mehrere Spielmodi und Schwierigkeitsgrade — los geht's!",
+    "step1": "1 · Spielmodus",
+    "step2": "2 · Schwierigkeit",
+    "step3": "3 · Kategorie",
+    "play_aria": "Spielen im Modus {variant}, Schwierigkeit {difficulty}, Kategorie {category}",
+    "features": {
+      "modes_title": "3 Spielmodi",
+      "modes_desc": "Foto, Name oder Körperteil",
+      "diff_title": "3 Schwierigkeiten",
+      "diff_desc": "Einfach, Mittel, Experte",
+      "cats_title": "4 Kategorien",
+      "cats_desc": "Schauspieler, Musiker, Sportler, Politiker"
+    }
+  },
+  "variant": {
+    "photo-to-name": {
+      "label": "Foto → Name",
+      "description": "Ein Foto erscheint. Wer ist diese Berühmtheit?"
+    },
+    "name-to-photo": {
+      "label": "Name → Foto",
+      "description": "Ein Name erscheint. Klicken Sie auf das richtige Foto."
+    },
+    "body-part": {
+      "label": "Körperteil",
+      "description": "Ein Körperteil wird gezeigt. Erkennen Sie die Berühmtheit!"
+    }
+  },
+  "difficulty": {
+    "easy": { "label": "Einfach", "desc": "2 Optionen • 30 Sek." },
+    "medium": { "label": "Mittel", "desc": "4 Optionen • 25 Sek." },
+    "expert": { "label": "Experte", "desc": "Freitext • 45 Sek." }
+  },
+  "category": {
+    "all": "Alle",
+    "actors": "Schauspieler",
+    "musicians": "Musiker",
+    "athletes": "Sportler",
+    "politicians": "Politiker"
+  },
+  "game": {
+    "round": "Runde",
+    "score": "Punkte",
+    "who_is": "Wer ist diese Berühmtheit?",
+    "find_photo": "Finden Sie das Foto von",
+    "whose_part": "Wem gehört {part}?",
+    "body_parts": {
+      "eyes": "die Augen",
+      "mouth": "der Mund",
+      "hands": "die Hände",
+      "silhouette": "die Silhouette",
+      "back": "der Rücken"
+    },
+    "type_name": "Namen eingeben…",
+    "correct": "Richtig!",
+    "wrong": "Falsch!",
+    "it_was": "Es war",
+    "next_question": "Nächste Frage →",
+    "see_results": "Ergebnisse anzeigen",
+    "ready_title": "Bereit zu spielen?",
+    "ready_subtitle": "10 Fragen erwarten Sie",
+    "start": "Starten →",
+    "time_left": "Verbleibende Zeit",
+    "progress": "Fortschritt"
+  },
+  "result": {
+    "final_score": "Endergebnis",
+    "correct_answers": "{correct} / {total} richtig",
+    "accuracy": "Genauigkeit",
+    "best_streak": "Beste Serie",
+    "avg_time": "Ø Zeit",
+    "play_again": "Nochmal spielen",
+    "change_mode": "Modus wechseln",
+    "round_recap": "Rundenübersicht",
+    "grades": {
+      "S": "Legendär!",
+      "A": "Ausgezeichnet!",
+      "B": "Gut gemacht!",
+      "C": "Nicht schlecht…",
+      "D": "Weiter üben"
+    }
+  },
+  "footer": {
+    "tagline": "Testen Sie Ihr Wissen über Berühmtheiten",
+    "demo_notice": "Fotos sind Platzhalter — ersetzen Sie sie durch echte Bilder in"
+  },
+  "theme": {
+    "dark": "Dunkelmodus",
+    "light": "Hellmodus"
+  }
+}

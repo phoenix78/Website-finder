@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+.next/
+out/
+
+# Environment files (never in images)
+.env
+.env.*
+!.env.example
+
+# Dev / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docs / config not needed at runtime
+*.md
+nginx.conf.example
+netlify.toml
+
+# Tests
+coverage/
+__tests__/
+*.test.*
+*.spec.*
+
+# CI
+.github/

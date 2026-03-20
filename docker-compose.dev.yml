@@ -1,0 +1,48 @@
+# =============================================================================
+#  Celebrity Quiz — Development override
+#  Usage: make dev   (or docker compose -f docker-compose.yml -f docker-compose.dev.yml up)
+#
+#  Features:
+#    - Next.js dev server with hot-reload on port 3001
+#    - Source files mounted from host → changes reflect instantly
+#    - node_modules inside container (avoids host/container conflicts)
+# =============================================================================
+
+name: celebrity-quiz
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev             # use the lightweight dev stage
+    image: ${IMAGE_NAME:-celebrity-quiz}:dev
+    container_name: celebrity-quiz-dev
+    restart: unless-stopped
+    ports:
+      - "${DEV_PORT:-3001}:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+      - TZ=${TZ:-Europe/Paris}
+      - WATCHPACK_POLLING=${WATCHPACK_POLLING:-false}  # set to true on WSL2
+    volumes:
+      # Mount source code — hot-reload picks up changes immediately
+      - .:/app
+      # Prevent host node_modules from overwriting container's
+      - /app/node_modules
+      # Persist Next.js build cache across restarts
+      - nextjs-cache:/app/.next
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000"]
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+
+volumes:
+  nextjs-cache:
+    name: celebrity-quiz-nextjs-cache

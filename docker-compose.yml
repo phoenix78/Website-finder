@@ -1,0 +1,46 @@
+# =============================================================================
+#  Celebrity Quiz — Production stack
+#  Usage: make up   (or docker compose up -d)
+# =============================================================================
+
+name: celebrity-quiz
+
+services:
+
+  # ── Web app (nginx + static export) ────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner          # only build the production stage
+      cache_from:
+        - type=local,src=/tmp/.buildx-cache
+      cache_to:
+        - type=local,dest=/tmp/.buildx-cache,mode=max
+    image: ${IMAGE_NAME:-celebrity-quiz}:${IMAGE_TAG:-latest}
+    container_name: celebrity-quiz-app
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:80"
+    environment:
+      - TZ=${TZ:-Europe/Paris}
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/index.html"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    labels:
+      # Traefik labels (optional — remove if not using Traefik)
+      - "traefik.enable=true"
+      - "traefik.http.routers.celebrity-quiz.rule=Host(`${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.celebrity-quiz.entrypoints=websecure"
+      - "traefik.http.routers.celebrity-quiz.tls.certresolver=letsencrypt"
+      - "traefik.http.services.celebrity-quiz.loadbalancer.server.port=80"
+
+networks:
+  web:
+    name: celebrity-quiz-network
+    driver: bridge

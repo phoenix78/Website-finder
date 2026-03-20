@@ -22,6 +22,8 @@
     "features": {
       "modes_title": "3 modes de jeu",
       "modes_desc": "Photo, Nom ou Partie du corps",
+      "survival_title": "Mode Survie",
+      "survival_desc": "Questions infinies — une erreur et c'est terminé",
       "diff_title": "3 difficultés",
       "diff_desc": "Facile, Intermédiaire, Expert",
       "cats_title": "4 catégories",
@@ -88,6 +90,9 @@
     "play_again": "Rejouer",
     "change_mode": "Changer de mode",
     "round_recap": "Détail des réponses",
+    "grade": "Note",
+    "share": "Partager le score",
+    "copied": "Copié !",
     "grades": {
       "S": "Légendaire !",
       "A": "Excellent !",
@@ -95,6 +100,28 @@
       "C": "Pas mal…",
       "D": "À améliorer"
     }
+  },
+  "survival": {
+    "title": "Survie",
+    "subtitle": "Répondez à un maximum de questions. Une erreur = game over.",
+    "rule1": "Chrono de 10 secondes par question",
+    "rule2": "Toute erreur met fin à la partie",
+    "rule3": "Survivez le plus longtemps possible — sans limite !",
+    "start": "Démarrer la survie",
+    "round": "Manche {n}",
+    "rounds_survived": "manches survécues",
+    "survived": "Vous avez survécu {n} manches",
+    "game_over": "Game Over !",
+    "change_config": "Changer de mode"
+  },
+  "leaderboard": {
+    "title": "Classement",
+    "tab_all": "Tout",
+    "tab_classic": "Classique",
+    "tab_survival": "Survie",
+    "empty": "Aucun score pour l'instant. Jouez une partie pour apparaître ici !",
+    "clear": "Effacer le classement",
+    "confirm_clear": "Voulez-vous vraiment effacer tous les scores ?"
   },
   "footer": {
     "tagline": "Testez vos connaissances sur les célébrités",

@@ -22,6 +22,8 @@
     "features": {
       "modes_title": "3 game modes",
       "modes_desc": "Photo, Name or Body Part",
+      "survival_title": "Survival mode",
+      "survival_desc": "Infinite questions — one mistake and it's over",
       "diff_title": "3 difficulty levels",
       "diff_desc": "Easy, Medium, Expert",
       "cats_title": "4 categories",
@@ -88,6 +90,9 @@
     "play_again": "Play Again",
     "change_mode": "Change Mode",
     "round_recap": "Round recap",
+    "grade": "Grade",
+    "share": "Share score",
+    "copied": "Copied!",
     "grades": {
       "S": "Legendary!",
       "A": "Excellent!",
@@ -95,6 +100,28 @@
       "C": "Not bad…",
       "D": "Keep trying"
     }
+  },
+  "survival": {
+    "title": "Survival",
+    "subtitle": "Answer as many questions as possible. One wrong answer = game over.",
+    "rule1": "10-second timer per question",
+    "rule2": "Any wrong answer ends the game",
+    "rule3": "Survive as long as possible — no limits!",
+    "start": "Start Survival",
+    "round": "Round {n}",
+    "rounds_survived": "rounds survived",
+    "survived": "You survived {n} rounds",
+    "game_over": "Game Over!",
+    "change_config": "Change mode"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "tab_all": "All",
+    "tab_classic": "Classic",
+    "tab_survival": "Survival",
+    "empty": "No scores yet. Play a game to get on the board!",
+    "clear": "Clear leaderboard",
+    "confirm_clear": "Are you sure you want to clear all scores?"
   },
   "footer": {
     "tagline": "Test your celebrity knowledge",

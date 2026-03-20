@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { VariantId, Difficulty, CategoryId } from '@/types/game'
 import { useGame } from '@/hooks/useGame'
 import { useT } from '@/i18n'
@@ -17,6 +17,43 @@ interface GameShellProps {
   variant: VariantId
   difficulty: Difficulty
   category: CategoryId
+}
+
+// ── Animated question wrapper ────────────────────────────────────────────────
+// Re-mounts (via key) on each new round, triggering CSS slide-in animation.
+// On wrong answer we also play a shake animation on the container.
+function AnimatedQuestion({
+  roundId,
+  isWrong,
+  children,
+}: {
+  roundId: string
+  isWrong: boolean
+  children: React.ReactNode
+}) {
+  const [animClass, setAnimClass] = useState('animate-slide-in')
+  const prevId = useRef(roundId)
+
+  useEffect(() => {
+    if (roundId !== prevId.current) {
+      prevId.current = roundId
+      setAnimClass('animate-slide-in')
+    }
+  }, [roundId])
+
+  useEffect(() => {
+    if (isWrong) {
+      setAnimClass('animate-shake')
+      const t = setTimeout(() => setAnimClass(''), 420)
+      return () => clearTimeout(t)
+    }
+  }, [isWrong])
+
+  return (
+    <div key={roundId} className={animClass}>
+      {children}
+    </div>
+  )
 }
 
 export function GameShell({ variant, difficulty, category }: GameShellProps) {
@@ -65,6 +102,7 @@ export function GameShell({ variant, difficulty, category }: GameShellProps) {
   const round = session.rounds[session.currentRoundIndex]
   const isFeedback = state.status === 'feedback'
   const isLastRound = session.currentRoundIndex === session.rounds.length - 1
+  const isWrong = isFeedback && state.lastAnswer?.correct === false
 
   const variantProps = {
     round,
@@ -108,11 +146,13 @@ export function GameShell({ variant, difficulty, category }: GameShellProps) {
       )}
 
       <div className="min-h-[360px] flex items-start justify-center">
-        {renderVariant()}
+        <AnimatedQuestion roundId={round.id} isWrong={isWrong}>
+          {renderVariant()}
+        </AnimatedQuestion>
       </div>
 
       {isFeedback && state.lastAnswer && (
-        <div className="mt-2">
+        <div className="mt-2 animate-fade-in">
           <RoundFeedback
             answer={state.lastAnswer}
             round={round}

@@ -22,6 +22,8 @@
     "features": {
       "modes_title": "3 modos de juego",
       "modes_desc": "Foto, Nombre o Parte del cuerpo",
+      "survival_title": "Modo Supervivencia",
+      "survival_desc": "Preguntas infinitas — un error y se acabó",
       "diff_title": "3 dificultades",
       "diff_desc": "Fácil, Medio, Experto",
       "cats_title": "4 categorías",
@@ -88,6 +90,9 @@
     "play_again": "Jugar de nuevo",
     "change_mode": "Cambiar modo",
     "round_recap": "Resumen de rondas",
+    "grade": "Nota",
+    "share": "Compartir puntuación",
+    "copied": "¡Copiado!",
     "grades": {
       "S": "¡Legendario!",
       "A": "¡Excelente!",
@@ -95,6 +100,28 @@
       "C": "No está mal…",
       "D": "Sigue intentando"
     }
+  },
+  "survival": {
+    "title": "Supervivencia",
+    "subtitle": "Responde tantas preguntas como puedas. Un error = game over.",
+    "rule1": "Temporizador de 10 segundos por pregunta",
+    "rule2": "Cualquier error termina la partida",
+    "rule3": "¡Sobrevive el mayor tiempo posible — sin límite!",
+    "start": "Iniciar supervivencia",
+    "round": "Ronda {n}",
+    "rounds_survived": "rondas superadas",
+    "survived": "Superaste {n} rondas",
+    "game_over": "¡Game Over!",
+    "change_config": "Cambiar configuración"
+  },
+  "leaderboard": {
+    "title": "Clasificación",
+    "tab_all": "Todo",
+    "tab_classic": "Clásico",
+    "tab_survival": "Supervivencia",
+    "empty": "Sin puntuaciones aún. ¡Juega una partida para aparecer aquí!",
+    "clear": "Borrar clasificación",
+    "confirm_clear": "¿Seguro que quieres borrar todas las puntuaciones?"
   },
   "footer": {
     "tagline": "Pon a prueba tus conocimientos sobre celebridades",

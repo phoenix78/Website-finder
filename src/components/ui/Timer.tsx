@@ -8,10 +8,11 @@ interface TimerProps {
   duration: number          // total seconds
   onExpire: () => void
   paused?: boolean
+  danger?: boolean          // survival mode — always red
   className?: string
 }
 
-export function Timer({ duration, onExpire, paused = false, className }: TimerProps) {
+export function Timer({ duration, onExpire, paused = false, danger = false, className }: TimerProps) {
   const [remaining, setRemaining] = useState(duration)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const expiredRef = useRef(false)
@@ -45,7 +46,7 @@ export function Timer({ duration, onExpire, paused = false, className }: TimerPr
     }
   }, [paused, onExpire])
 
-  const urgent = remaining <= duration * 0.25
+  const urgent = danger || remaining <= duration * 0.25
 
   return (
     <div className={cn('flex items-center gap-3', className)}>

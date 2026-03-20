@@ -6,6 +6,7 @@ import type { VariantId, Difficulty, CategoryId } from '@/types/game'
 import { GameRegistry } from '@/game-registry'
 import { getCategoryCounts } from '@/data'
 import { Badge } from '@/components/ui/Badge'
+import { Leaderboard } from '@/components/ui/Leaderboard'
 import { useT } from '@/i18n'
 import { cn } from '@/lib/utils'
 
@@ -29,9 +30,10 @@ export default function HomePage() {
   const variants = GameRegistry.all()
   const counts = getCategoryCounts()
 
-  const [selectedVariant, setSelectedVariant]       = useState<VariantId>('photo-to-name')
+  const [selectedVariant,    setSelectedVariant]    = useState<VariantId>('photo-to-name')
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>('easy')
-  const [selectedCategory, setSelectedCategory]     = useState<CategoryId>('all')
+  const [selectedCategory,   setSelectedCategory]   = useState<CategoryId>('all')
+  const [showLeaderboard,    setShowLeaderboard]    = useState(false)
 
   const activeVariant = GameRegistry.get(selectedVariant)
 
@@ -147,11 +149,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <div className="flex justify-center pb-4">
+      {/* CTAs */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pb-2">
         <button
           onClick={handlePlay}
-          className="px-10 py-4 bg-game-accent hover:bg-game-accent-hover text-white font-black text-xl rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent animate-pulse-glow"
+          className="w-full sm:w-auto px-10 py-4 bg-game-accent hover:bg-game-accent-hover text-white font-black text-xl rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-xl hover:shadow-indigo-500/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent animate-pulse-glow"
           aria-label={t('home.play_aria', {
             variant: t(`variant.${selectedVariant}.label`),
             difficulty: t(`difficulty.${selectedDifficulty}.label`),
@@ -160,23 +162,45 @@ export default function HomePage() {
         >
           {t('common.play_now')}
         </button>
+
+        {/* Survival mode CTA */}
+        <a
+          href="/survival"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 bg-orange-500 hover:bg-orange-600 text-white font-black text-lg rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-orange-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+        >
+          ⚡ {t('survival.title')}
+        </a>
+      </div>
+
+      {/* Leaderboard button */}
+      <div className="flex justify-center -mt-4 pb-4">
+        <button
+          onClick={() => setShowLeaderboard(true)}
+          className="flex items-center gap-2 text-sm text-game-muted hover:text-game-text transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent rounded-xl px-4 py-2 hover:bg-game-card border border-transparent hover:border-game-border"
+        >
+          🏆 {t('leaderboard.title')}
+        </button>
       </div>
 
       {/* Feature icons */}
-      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-game-border pt-8">
+      <section className="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-game-border pt-8">
         {[
-          { icon: '🎮', titleKey: 'home.features.modes_title', descKey: 'home.features.modes_desc' },
-          { icon: '🏆', titleKey: 'home.features.diff_title',  descKey: 'home.features.diff_desc'  },
-          { icon: '🌍', titleKey: 'home.features.cats_title',  descKey: 'home.features.cats_desc'  },
+          { icon: '🎮', titleKey: 'home.features.modes_title',    descKey: 'home.features.modes_desc'    },
+          { icon: '⚡', titleKey: 'home.features.survival_title', descKey: 'home.features.survival_desc' },
+          { icon: '🏆', titleKey: 'home.features.diff_title',     descKey: 'home.features.diff_desc'     },
+          { icon: '🌍', titleKey: 'home.features.cats_title',     descKey: 'home.features.cats_desc'     },
         ].map((f) => (
           <div key={f.titleKey} className="flex flex-col items-center text-center gap-2 p-4">
             <span className="text-3xl">{f.icon}</span>
-            <h3 className="font-bold text-game-text">{t(f.titleKey)}</h3>
-            <p className="text-game-muted text-sm">{t(f.descKey)}</p>
+            <h3 className="font-bold text-game-text text-sm">{t(f.titleKey)}</h3>
+            <p className="text-game-muted text-xs">{t(f.descKey)}</p>
           </div>
         ))}
       </section>
 
+      {showLeaderboard && (
+        <Leaderboard onClose={() => setShowLeaderboard(false)} />
+      )}
     </div>
   )
 }

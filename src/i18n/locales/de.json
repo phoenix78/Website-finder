@@ -22,6 +22,8 @@
     "features": {
       "modes_title": "3 Spielmodi",
       "modes_desc": "Foto, Name oder Körperteil",
+      "survival_title": "Überlebensmodus",
+      "survival_desc": "Unendliche Fragen — ein Fehler und es ist vorbei",
       "diff_title": "3 Schwierigkeiten",
       "diff_desc": "Einfach, Mittel, Experte",
       "cats_title": "4 Kategorien",
@@ -88,6 +90,9 @@
     "play_again": "Nochmal spielen",
     "change_mode": "Modus wechseln",
     "round_recap": "Rundenübersicht",
+    "grade": "Note",
+    "share": "Ergebnis teilen",
+    "copied": "Kopiert!",
     "grades": {
       "S": "Legendär!",
       "A": "Ausgezeichnet!",
@@ -95,6 +100,28 @@
       "C": "Nicht schlecht…",
       "D": "Weiter üben"
     }
+  },
+  "survival": {
+    "title": "Überleben",
+    "subtitle": "Beantworte so viele Fragen wie möglich. Ein Fehler = Game Over.",
+    "rule1": "10 Sekunden pro Frage",
+    "rule2": "Jeder Fehler beendet das Spiel",
+    "rule3": "Überlebe so lange wie möglich — ohne Limit!",
+    "start": "Überleben starten",
+    "round": "Runde {n}",
+    "rounds_survived": "überlebte Runden",
+    "survived": "Sie haben {n} Runden überlebt",
+    "game_over": "Game Over!",
+    "change_config": "Modus ändern"
+  },
+  "leaderboard": {
+    "title": "Bestenliste",
+    "tab_all": "Alle",
+    "tab_classic": "Klassisch",
+    "tab_survival": "Überleben",
+    "empty": "Noch keine Punkte. Spielen Sie eine Partie, um in die Liste zu kommen!",
+    "clear": "Bestenliste löschen",
+    "confirm_clear": "Möchten Sie wirklich alle Punkte löschen?"
   },
   "footer": {
     "tagline": "Testen Sie Ihr Wissen über Berühmtheiten",

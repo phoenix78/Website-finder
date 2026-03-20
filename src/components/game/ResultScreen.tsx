@@ -1,11 +1,16 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import type { GameSession } from '@/types/game'
 import { getGameGrade } from '@/engine/scoreEngine'
+import { saveScore } from '@/lib/leaderboard'
+import type { LeaderboardEntry } from '@/lib/leaderboard'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { ShareScore } from '@/components/ui/ShareScore'
+import { Leaderboard } from '@/components/ui/Leaderboard'
 import { useT } from '@/i18n'
 import { formatScore, formatPercent, cn } from '@/lib/utils'
 
@@ -17,15 +22,35 @@ interface ResultScreenProps {
 export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
   const { t } = useT()
   const correct = session.answers.filter((a) => a.correct).length
-  const total = session.answers.length
-  const grade = getGameGrade(correct, total)
+  const total   = session.answers.length
+  const grade   = getGameGrade(correct, total)
   const avgTime = total > 0 ? session.answers.reduce((s, a) => s + a.timeUsed, 0) / total : 0
+
+  // Save to leaderboard exactly once per result screen mount
+  const savedRef = useRef<LeaderboardEntry | null>(null)
+  useEffect(() => {
+    if (!savedRef.current) {
+      savedRef.current = saveScore({
+        score: session.score,
+        grade: grade.letter,
+        variant: session.variant,
+        difficulty: session.difficulty,
+        correct,
+        total,
+        maxStreak: session.maxStreak,
+        mode: 'classic',
+      })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const [showLeaderboard, setShowLeaderboard] = useState(false)
 
   return (
     <div className="flex flex-col items-center gap-8 animate-fade-in w-full max-w-lg mx-auto">
 
       {/* Grade */}
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-3 animate-pop-in">
         <div
           className={cn(
             'w-24 h-24 rounded-3xl flex items-center justify-center text-5xl font-black border-4',
@@ -88,17 +113,29 @@ export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
             <div
               key={a.roundId}
               className={cn(
-                'aspect-square rounded-lg flex items-center justify-center text-sm font-bold border',
+                'aspect-square rounded-lg flex items-center justify-center text-sm font-bold border animate-pop-in',
                 a.correct
                   ? 'bg-green-500/20 border-green-500/40 text-green-500'
                   : 'bg-red-500/20 border-red-500/40 text-red-500'
               )}
+              style={{ animationDelay: `${i * 40}ms` }}
               title={`${i + 1}: ${a.correct ? '✓' : '✗'} (${a.pointsEarned} pts)`}
             >
               {a.correct ? '✓' : '✗'}
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Share + leaderboard */}
+      <div className="flex flex-wrap gap-3 justify-center w-full">
+        {savedRef.current && <ShareScore entry={savedRef.current} />}
+        <button
+          onClick={() => setShowLeaderboard(true)}
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-game-border bg-game-card hover:border-game-accent/60 text-game-text font-semibold text-sm transition-all hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-game-accent"
+        >
+          🏆 {t('leaderboard.title')}
+        </button>
       </div>
 
       {/* Actions */}
@@ -112,6 +149,13 @@ export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
           </Button>
         </Link>
       </div>
+
+      {showLeaderboard && (
+        <Leaderboard
+          onClose={() => setShowLeaderboard(false)}
+          highlightId={savedRef.current?.id}
+        />
+      )}
     </div>
   )
 }

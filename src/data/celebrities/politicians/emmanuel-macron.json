@@ -1,0 +1,28 @@
+{
+  "slug": "emmanuel-macron",
+  "name": "Emmanuel Macron",
+  "aliases": ["Macron", "Emmanuel Jean-Michel Frédéric Macron"],
+  "category": "politicians",
+  "difficulty": "medium",
+  "active": true,
+  "nationality": "French",
+  "birthYear": 1977,
+  "description": "President of France since 2017",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/emmanuel-macron-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/emmanuel-macron-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

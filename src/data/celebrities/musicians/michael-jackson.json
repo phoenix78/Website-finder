@@ -1,0 +1,28 @@
+{
+  "slug": "michael-jackson",
+  "name": "Michael Jackson",
+  "aliases": ["MJ", "King of Pop", "Michael Joseph Jackson"],
+  "category": "musicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1958,
+  "description": "American singer, songwriter and dancer",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/michael-jackson-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/michael-jackson-hands/300/200",
+      "type": "body-part",
+      "bodyPart": "hands",
+      "alt": "Close-up of hands",
+      "width": 300,
+      "height": 200
+    }
+  ]
+}

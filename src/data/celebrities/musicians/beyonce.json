@@ -1,0 +1,28 @@
+{
+  "slug": "beyonce",
+  "name": "Beyoncé",
+  "aliases": ["Beyonce", "Beyoncé Giselle Knowles-Carter", "Queen Bey"],
+  "category": "musicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1981,
+  "description": "American singer, songwriter and actress",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/beyonce-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/beyonce-hands/300/200",
+      "type": "body-part",
+      "bodyPart": "hands",
+      "alt": "Close-up of hands",
+      "width": 300,
+      "height": 200
+    }
+  ]
+}

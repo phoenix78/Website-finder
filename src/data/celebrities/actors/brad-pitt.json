@@ -1,0 +1,28 @@
+{
+  "slug": "brad-pitt",
+  "name": "Brad Pitt",
+  "aliases": ["William Bradley Pitt", "Brad"],
+  "category": "actors",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1963,
+  "description": "American actor and film producer",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/brad-pitt-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/brad-pitt-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

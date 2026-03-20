@@ -1,0 +1,28 @@
+{
+  "slug": "rihanna",
+  "name": "Rihanna",
+  "aliases": ["Robyn Rihanna Fenty", "RiRi"],
+  "category": "musicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "Barbadian",
+  "birthYear": 1988,
+  "description": "Barbadian singer, actress and businesswoman",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/rihanna-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/rihanna-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

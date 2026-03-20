@@ -1,0 +1,28 @@
+{
+  "slug": "cristiano-ronaldo",
+  "name": "Cristiano Ronaldo",
+  "aliases": ["CR7", "Cristiano Ronaldo dos Santos Aveiro", "Ronaldo"],
+  "category": "athletes",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "Portuguese",
+  "birthYear": 1985,
+  "description": "Portuguese professional footballer",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/cristiano-ronaldo-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/cristiano-ronaldo-body/300/400",
+      "type": "body-part",
+      "bodyPart": "silhouette",
+      "alt": "Athletic silhouette",
+      "width": 300,
+      "height": 400
+    }
+  ]
+}

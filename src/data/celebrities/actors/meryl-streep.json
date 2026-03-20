@@ -1,0 +1,28 @@
+{
+  "slug": "meryl-streep",
+  "name": "Meryl Streep",
+  "aliases": ["Mary Louise Streep"],
+  "category": "actors",
+  "difficulty": "medium",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1949,
+  "description": "American actress with record 21 Academy Award nominations",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/meryl-streep-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/meryl-streep-mouth/300/150",
+      "type": "body-part",
+      "bodyPart": "mouth",
+      "alt": "Close-up of mouth",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

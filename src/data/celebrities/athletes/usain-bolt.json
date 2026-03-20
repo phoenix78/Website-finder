@@ -1,0 +1,28 @@
+{
+  "slug": "usain-bolt",
+  "name": "Usain Bolt",
+  "aliases": ["Usain St. Leo Bolt", "Lightning Bolt"],
+  "category": "athletes",
+  "difficulty": "medium",
+  "active": true,
+  "nationality": "Jamaican",
+  "birthYear": 1986,
+  "description": "Jamaican retired sprinter and Olympic champion",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/usain-bolt-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/usain-bolt-body/300/400",
+      "type": "body-part",
+      "bodyPart": "silhouette",
+      "alt": "Athletic silhouette",
+      "width": 300,
+      "height": 400
+    }
+  ]
+}

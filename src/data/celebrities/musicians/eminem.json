@@ -1,0 +1,28 @@
+{
+  "slug": "eminem",
+  "name": "Eminem",
+  "aliases": ["Marshall Mathers", "Slim Shady", "Marshall Bruce Mathers III"],
+  "category": "musicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1972,
+  "description": "American rapper, songwriter and record producer",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/eminem-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/eminem-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

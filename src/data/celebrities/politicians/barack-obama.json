@@ -1,0 +1,28 @@
+{
+  "slug": "barack-obama",
+  "name": "Barack Obama",
+  "aliases": ["Barack Hussein Obama II", "Obama", "44th President"],
+  "category": "politicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1961,
+  "description": "44th President of the United States",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/barack-obama-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/barack-obama-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

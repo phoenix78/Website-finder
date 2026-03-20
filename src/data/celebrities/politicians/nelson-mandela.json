@@ -1,0 +1,28 @@
+{
+  "slug": "nelson-mandela",
+  "name": "Nelson Mandela",
+  "aliases": ["Madiba", "Nelson Rolihlahla Mandela", "Tata"],
+  "category": "politicians",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "South African",
+  "birthYear": 1918,
+  "description": "First President of South Africa after apartheid",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/nelson-mandela-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/nelson-mandela-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

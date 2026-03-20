@@ -1,0 +1,28 @@
+{
+  "slug": "angelina-jolie",
+  "name": "Angelina Jolie",
+  "aliases": ["Angelina Jolie Voight", "Angie"],
+  "category": "actors",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1975,
+  "description": "American actress, filmmaker and humanitarian",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/angelina-jolie-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/angelina-jolie-mouth/300/150",
+      "type": "body-part",
+      "bodyPart": "mouth",
+      "alt": "Close-up of mouth",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

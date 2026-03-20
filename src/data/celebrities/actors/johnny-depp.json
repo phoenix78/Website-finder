@@ -1,0 +1,28 @@
+{
+  "slug": "johnny-depp",
+  "name": "Johnny Depp",
+  "aliases": ["John Christopher Depp II"],
+  "category": "actors",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1963,
+  "description": "American actor and musician",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/johnny-depp-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/johnny-depp-eyes/300/150",
+      "type": "body-part",
+      "bodyPart": "eyes",
+      "alt": "Close-up of eyes",
+      "width": 300,
+      "height": 150
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "serena-williams",
+  "name": "Serena Williams",
+  "aliases": ["Serena Jameka Williams"],
+  "category": "athletes",
+  "difficulty": "easy",
+  "active": true,
+  "nationality": "American",
+  "birthYear": 1981,
+  "description": "American professional tennis player",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/serena-williams-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/serena-williams-body/300/400",
+      "type": "body-part",
+      "bodyPart": "silhouette",
+      "alt": "Athletic silhouette",
+      "width": 300,
+      "height": 400
+    }
+  ]
+}

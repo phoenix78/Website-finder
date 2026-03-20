@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-game-bg text-game-text antialiased;
+    min-height: 100dvh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-game-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-game-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-game-muted;
+  }
+
+  /* Focus ring reset — handled per-component */
+  *:focus {
+    outline: none;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism card */
+  .glass {
+    @apply bg-game-card/80 backdrop-blur-sm border border-game-border;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent;
+  }
+
+  /* Prevent content shift during image load */
+  .img-placeholder {
+    @apply bg-game-card animate-pulse;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "roger-federer",
+  "name": "Roger Federer",
+  "aliases": ["Fed", "RF"],
+  "category": "athletes",
+  "difficulty": "medium",
+  "active": true,
+  "nationality": "Swiss",
+  "birthYear": 1981,
+  "description": "Swiss professional tennis player",
+  "images": [
+    {
+      "url": "https://picsum.photos/seed/roger-federer-face/400/400",
+      "type": "face",
+      "alt": "Celebrity portrait",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "https://picsum.photos/seed/roger-federer-body/300/400",
+      "type": "body-part",
+      "bodyPart": "silhouette",
+      "alt": "Athletic silhouette",
+      "width": 300,
+      "height": 400
+    }
+  ]
+}

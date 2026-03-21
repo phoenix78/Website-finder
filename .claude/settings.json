@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "TODAY=$(date +%Y-%m-%d) && sed -i \"s/Last updated: [0-9-]*/Last updated: $TODAY/g\" /home/user/Website-finder/README.md /home/user/Website-finder/docs/FUNCTIONS.md /home/user/Website-finder/docs/PROJECT.md 2>/dev/null || true",
+            "statusMessage": "Updating documentation timestamps..."
+          }
+        ]
+      }
+    ]
+  }
+}

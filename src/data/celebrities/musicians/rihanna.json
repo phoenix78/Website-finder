@@ -1,7 +1,10 @@
 {
   "slug": "rihanna",
   "name": "Rihanna",
-  "aliases": ["Robyn Rihanna Fenty", "RiRi"],
+  "aliases": [
+    "Robyn Rihanna Fenty",
+    "RiRi"
+  ],
   "category": "musicians",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "Barbadian singer, actress and businesswoman",
   "images": [
     {
-      "url": "https://picsum.photos/seed/rihanna-face/400/400",
+      "url": "/celebrities/musicians/rihanna.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Rihanna — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/rihanna-eyes/300/150",
+      "url": "/celebrities/musicians/rihanna-full.svg",
+      "type": "full-body",
+      "alt": "Rihanna — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/musicians/rihanna-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Rihanna — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

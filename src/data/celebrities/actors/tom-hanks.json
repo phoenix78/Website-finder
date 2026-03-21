@@ -1,7 +1,9 @@
 {
   "slug": "tom-hanks",
   "name": "Tom Hanks",
-  "aliases": ["Thomas Jeffrey Hanks"],
+  "aliases": [
+    "Thomas Jeffrey Hanks"
+  ],
   "category": "actors",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +12,26 @@
   "description": "American actor and filmmaker",
   "images": [
     {
-      "url": "https://picsum.photos/seed/tom-hanks-face/400/400",
+      "url": "/celebrities/actors/tom-hanks.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Tom Hanks — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/tom-hanks-eyes/300/150",
+      "url": "/celebrities/actors/tom-hanks-full.svg",
+      "type": "full-body",
+      "alt": "Tom Hanks — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/actors/tom-hanks-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Tom Hanks — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

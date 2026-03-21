@@ -1,7 +1,10 @@
 {
   "slug": "taylor-swift",
   "name": "Taylor Swift",
-  "aliases": ["Taylor Alison Swift", "T-Swift"],
+  "aliases": [
+    "Taylor Alison Swift",
+    "T-Swift"
+  ],
   "category": "musicians",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "American singer-songwriter",
   "images": [
     {
-      "url": "https://picsum.photos/seed/taylor-swift-face/400/400",
+      "url": "/celebrities/musicians/taylor-swift.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Taylor Swift — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/taylor-swift-eyes/300/150",
+      "url": "/celebrities/musicians/taylor-swift-full.svg",
+      "type": "full-body",
+      "alt": "Taylor Swift — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/musicians/taylor-swift-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Taylor Swift — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

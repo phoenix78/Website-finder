@@ -1,7 +1,10 @@
 {
   "slug": "usain-bolt",
   "name": "Usain Bolt",
-  "aliases": ["Usain St. Leo Bolt", "Lightning Bolt"],
+  "aliases": [
+    "Usain St. Leo Bolt",
+    "Lightning Bolt"
+  ],
   "category": "athletes",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "Jamaican retired sprinter and Olympic champion",
   "images": [
     {
-      "url": "https://picsum.photos/seed/usain-bolt-face/400/400",
+      "url": "/celebrities/athletes/usain-bolt.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Usain Bolt — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/usain-bolt-body/300/400",
+      "url": "/celebrities/athletes/usain-bolt-full.svg",
+      "type": "full-body",
+      "alt": "Usain Bolt — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/athletes/usain-bolt-silhouette.svg",
       "type": "body-part",
       "bodyPart": "silhouette",
-      "alt": "Athletic silhouette",
-      "width": 300,
-      "height": 400
+      "alt": "Usain Bolt — silhouette",
+      "width": 400,
+      "height": 250
     }
   ]
 }

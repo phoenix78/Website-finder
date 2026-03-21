@@ -1,7 +1,10 @@
 {
   "slug": "brad-pitt",
   "name": "Brad Pitt",
-  "aliases": ["William Bradley Pitt", "Brad"],
+  "aliases": [
+    "William Bradley Pitt",
+    "Brad"
+  ],
   "category": "actors",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "American actor and film producer",
   "images": [
     {
-      "url": "https://picsum.photos/seed/brad-pitt-face/400/400",
+      "url": "/celebrities/actors/brad-pitt.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Brad Pitt — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/brad-pitt-eyes/300/150",
+      "url": "/celebrities/actors/brad-pitt-full.svg",
+      "type": "full-body",
+      "alt": "Brad Pitt — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/actors/brad-pitt-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Brad Pitt — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

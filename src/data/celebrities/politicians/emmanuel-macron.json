@@ -1,7 +1,10 @@
 {
   "slug": "emmanuel-macron",
   "name": "Emmanuel Macron",
-  "aliases": ["Macron", "Emmanuel Jean-Michel Frédéric Macron"],
+  "aliases": [
+    "Macron",
+    "Emmanuel Jean-Michel Frédéric Macron"
+  ],
   "category": "politicians",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "President of France since 2017",
   "images": [
     {
-      "url": "https://picsum.photos/seed/emmanuel-macron-face/400/400",
+      "url": "/celebrities/politicians/emmanuel-macron.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Emmanuel Macron — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/emmanuel-macron-eyes/300/150",
+      "url": "/celebrities/politicians/emmanuel-macron-full.svg",
+      "type": "full-body",
+      "alt": "Emmanuel Macron — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/politicians/emmanuel-macron-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Emmanuel Macron — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

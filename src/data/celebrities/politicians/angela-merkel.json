@@ -1,7 +1,10 @@
 {
   "slug": "angela-merkel",
   "name": "Angela Merkel",
-  "aliases": ["Angela Dorothea Merkel", "Merkel"],
+  "aliases": [
+    "Angela Dorothea Merkel",
+    "Merkel"
+  ],
   "category": "politicians",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "Former Chancellor of Germany 2005–2021",
   "images": [
     {
-      "url": "https://picsum.photos/seed/angela-merkel-face/400/400",
+      "url": "/celebrities/politicians/angela-merkel.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Angela Merkel — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/angela-merkel-eyes/300/150",
+      "url": "/celebrities/politicians/angela-merkel-full.svg",
+      "type": "full-body",
+      "alt": "Angela Merkel — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/politicians/angela-merkel-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Angela Merkel — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

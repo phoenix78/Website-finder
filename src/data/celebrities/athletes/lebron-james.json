@@ -1,7 +1,11 @@
 {
   "slug": "lebron-james",
   "name": "LeBron James",
-  "aliases": ["LBJ", "King James", "LeBron Raymone James Sr."],
+  "aliases": [
+    "LBJ",
+    "King James",
+    "LeBron Raymone James Sr."
+  ],
   "category": "athletes",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +14,26 @@
   "description": "American professional basketball player",
   "images": [
     {
-      "url": "https://picsum.photos/seed/lebron-james-face/400/400",
+      "url": "/celebrities/athletes/lebron-james.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "LeBron James — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/lebron-james-hands/300/200",
+      "url": "/celebrities/athletes/lebron-james-full.svg",
+      "type": "full-body",
+      "alt": "LeBron James — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/athletes/lebron-james-hands.svg",
       "type": "body-part",
       "bodyPart": "hands",
-      "alt": "Close-up of hands",
-      "width": 300,
-      "height": 200
+      "alt": "LeBron James — hands",
+      "width": 400,
+      "height": 250
     }
   ]
 }

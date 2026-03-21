@@ -1,7 +1,11 @@
 {
   "slug": "michael-jackson",
   "name": "Michael Jackson",
-  "aliases": ["MJ", "King of Pop", "Michael Joseph Jackson"],
+  "aliases": [
+    "MJ",
+    "King of Pop",
+    "Michael Joseph Jackson"
+  ],
   "category": "musicians",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +14,26 @@
   "description": "American singer, songwriter and dancer",
   "images": [
     {
-      "url": "https://picsum.photos/seed/michael-jackson-face/400/400",
+      "url": "/celebrities/musicians/michael-jackson.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Michael Jackson — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/michael-jackson-hands/300/200",
+      "url": "/celebrities/musicians/michael-jackson-full.svg",
+      "type": "full-body",
+      "alt": "Michael Jackson — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/musicians/michael-jackson-hands.svg",
       "type": "body-part",
       "bodyPart": "hands",
-      "alt": "Close-up of hands",
-      "width": 300,
-      "height": 200
+      "alt": "Michael Jackson — hands",
+      "width": 400,
+      "height": 250
     }
   ]
 }

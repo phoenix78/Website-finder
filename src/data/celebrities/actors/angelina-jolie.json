@@ -1,7 +1,10 @@
 {
   "slug": "angelina-jolie",
   "name": "Angelina Jolie",
-  "aliases": ["Angelina Jolie Voight", "Angie"],
+  "aliases": [
+    "Angelina Jolie Voight",
+    "Angie"
+  ],
   "category": "actors",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "American actress, filmmaker and humanitarian",
   "images": [
     {
-      "url": "https://picsum.photos/seed/angelina-jolie-face/400/400",
+      "url": "/celebrities/actors/angelina-jolie.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Angelina Jolie — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/angelina-jolie-mouth/300/150",
+      "url": "/celebrities/actors/angelina-jolie-full.svg",
+      "type": "full-body",
+      "alt": "Angelina Jolie — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/actors/angelina-jolie-mouth.svg",
       "type": "body-part",
       "bodyPart": "mouth",
-      "alt": "Close-up of mouth",
-      "width": 300,
-      "height": 150
+      "alt": "Angelina Jolie — mouth",
+      "width": 400,
+      "height": 250
     }
   ]
 }

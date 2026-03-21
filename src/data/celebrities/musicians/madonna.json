@@ -1,7 +1,11 @@
 {
   "slug": "madonna",
   "name": "Madonna",
-  "aliases": ["Madonna Louise Ciccone", "Queen of Pop", "Material Girl"],
+  "aliases": [
+    "Madonna Louise Ciccone",
+    "Queen of Pop",
+    "Material Girl"
+  ],
   "category": "musicians",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +14,26 @@
   "description": "American singer, songwriter and actress",
   "images": [
     {
-      "url": "https://picsum.photos/seed/madonna-face/400/400",
+      "url": "/celebrities/musicians/madonna.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Madonna — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/madonna-mouth/300/150",
+      "url": "/celebrities/musicians/madonna-full.svg",
+      "type": "full-body",
+      "alt": "Madonna — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/musicians/madonna-mouth.svg",
       "type": "body-part",
       "bodyPart": "mouth",
-      "alt": "Close-up of mouth",
-      "width": 300,
-      "height": 150
+      "alt": "Madonna — mouth",
+      "width": 400,
+      "height": 250
     }
   ]
 }

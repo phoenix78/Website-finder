@@ -1,7 +1,11 @@
 {
   "slug": "cristiano-ronaldo",
   "name": "Cristiano Ronaldo",
-  "aliases": ["CR7", "Cristiano Ronaldo dos Santos Aveiro", "Ronaldo"],
+  "aliases": [
+    "CR7",
+    "Cristiano Ronaldo dos Santos Aveiro",
+    "Ronaldo"
+  ],
   "category": "athletes",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +14,26 @@
   "description": "Portuguese professional footballer",
   "images": [
     {
-      "url": "https://picsum.photos/seed/cristiano-ronaldo-face/400/400",
+      "url": "/celebrities/athletes/cristiano-ronaldo.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Cristiano Ronaldo — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/cristiano-ronaldo-body/300/400",
+      "url": "/celebrities/athletes/cristiano-ronaldo-full.svg",
+      "type": "full-body",
+      "alt": "Cristiano Ronaldo — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/athletes/cristiano-ronaldo-silhouette.svg",
       "type": "body-part",
       "bodyPart": "silhouette",
-      "alt": "Athletic silhouette",
-      "width": 300,
-      "height": 400
+      "alt": "Cristiano Ronaldo — silhouette",
+      "width": 400,
+      "height": 250
     }
   ]
 }

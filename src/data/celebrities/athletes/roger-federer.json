@@ -1,7 +1,10 @@
 {
   "slug": "roger-federer",
   "name": "Roger Federer",
-  "aliases": ["Fed", "RF"],
+  "aliases": [
+    "Fed",
+    "RF"
+  ],
   "category": "athletes",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "Swiss professional tennis player",
   "images": [
     {
-      "url": "https://picsum.photos/seed/roger-federer-face/400/400",
+      "url": "/celebrities/athletes/roger-federer.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Roger Federer — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/roger-federer-body/300/400",
+      "url": "/celebrities/athletes/roger-federer-full.svg",
+      "type": "full-body",
+      "alt": "Roger Federer — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/athletes/roger-federer-silhouette.svg",
       "type": "body-part",
       "bodyPart": "silhouette",
-      "alt": "Athletic silhouette",
-      "width": 300,
-      "height": 400
+      "alt": "Roger Federer — silhouette",
+      "width": 400,
+      "height": 250
     }
   ]
 }

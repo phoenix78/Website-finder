@@ -1,7 +1,10 @@
 {
   "slug": "leonardo-dicaprio",
   "name": "Leonardo DiCaprio",
-  "aliases": ["Leo DiCaprio", "Leonardo Wilhelm DiCaprio"],
+  "aliases": [
+    "Leo DiCaprio",
+    "Leonardo Wilhelm DiCaprio"
+  ],
   "category": "actors",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +13,26 @@
   "description": "American actor and film producer",
   "images": [
     {
-      "url": "https://picsum.photos/seed/leo-dicaprio-face/400/400",
+      "url": "/celebrities/actors/leonardo-dicaprio.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Leonardo DiCaprio — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/leo-dicaprio-eyes/300/150",
+      "url": "/celebrities/actors/leonardo-dicaprio-full.svg",
+      "type": "full-body",
+      "alt": "Leonardo DiCaprio — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/actors/leonardo-dicaprio-eyes.svg",
       "type": "body-part",
       "bodyPart": "eyes",
-      "alt": "Close-up of eyes",
-      "width": 300,
-      "height": 150
+      "alt": "Leonardo DiCaprio — eyes",
+      "width": 400,
+      "height": 250
     }
   ]
 }

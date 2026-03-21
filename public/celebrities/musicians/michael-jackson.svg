@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="bg" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#db2777" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="circle" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <!-- Subtle noise texture via circles -->
+  <circle cx="200" cy="200" r="195" fill="url(#circle)"/>
+  <!-- Shoulder silhouette -->
+  <ellipse cx="200" cy="490" rx="145" ry="120" fill="#00000033"/>
+  <!-- Head circle -->
+  <circle cx="200" cy="185" r="100" fill="#ffffff22"/>
+  <circle cx="200" cy="185" r="96" fill="#ffffff18"/>
+  <!-- Initials -->
+  <text
+    x="200" y="210"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    font-size="88"
+    font-weight="900"
+    text-anchor="middle"
+    fill="#ffffff"
+    opacity="0.95"
+    letter-spacing="-2"
+  >MJ</text>
+  <!-- Name bar -->
+  <rect x="0" y="335" width="400" height="65" fill="#00000055"/>
+  <text
+    x="200" y="377"
+    font-family="system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif"
+    font-size="24"
+    font-weight="700"
+    text-anchor="middle"
+    fill="#ffffff"
+    opacity="0.95"
+    letter-spacing="1"
+  >MICHAEL JACKSON</text>
+</svg>

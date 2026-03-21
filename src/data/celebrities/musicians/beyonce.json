@@ -1,7 +1,11 @@
 {
   "slug": "beyonce",
   "name": "Beyoncé",
-  "aliases": ["Beyonce", "Beyoncé Giselle Knowles-Carter", "Queen Bey"],
+  "aliases": [
+    "Beyonce",
+    "Beyoncé Giselle Knowles-Carter",
+    "Queen Bey"
+  ],
   "category": "musicians",
   "difficulty": "easy",
   "active": true,
@@ -10,19 +14,26 @@
   "description": "American singer, songwriter and actress",
   "images": [
     {
-      "url": "https://picsum.photos/seed/beyonce-face/400/400",
+      "url": "/celebrities/musicians/beyonce.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Beyoncé — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/beyonce-hands/300/200",
+      "url": "/celebrities/musicians/beyonce-full.svg",
+      "type": "full-body",
+      "alt": "Beyoncé — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/musicians/beyonce-hands.svg",
       "type": "body-part",
       "bodyPart": "hands",
-      "alt": "Close-up of hands",
-      "width": 300,
-      "height": 200
+      "alt": "Beyoncé — hands",
+      "width": 400,
+      "height": 250
     }
   ]
 }

@@ -1,7 +1,9 @@
 {
   "slug": "meryl-streep",
   "name": "Meryl Streep",
-  "aliases": ["Mary Louise Streep"],
+  "aliases": [
+    "Mary Louise Streep"
+  ],
   "category": "actors",
   "difficulty": "medium",
   "active": true,
@@ -10,19 +12,26 @@
   "description": "American actress with record 21 Academy Award nominations",
   "images": [
     {
-      "url": "https://picsum.photos/seed/meryl-streep-face/400/400",
+      "url": "/celebrities/actors/meryl-streep.svg",
       "type": "face",
-      "alt": "Celebrity portrait",
+      "alt": "Meryl Streep — portrait",
       "width": 400,
       "height": 400
     },
     {
-      "url": "https://picsum.photos/seed/meryl-streep-mouth/300/150",
+      "url": "/celebrities/actors/meryl-streep-full.svg",
+      "type": "full-body",
+      "alt": "Meryl Streep — full body",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "url": "/celebrities/actors/meryl-streep-mouth.svg",
       "type": "body-part",
       "bodyPart": "mouth",
-      "alt": "Close-up of mouth",
-      "width": 300,
-      "height": 150
+      "alt": "Meryl Streep — mouth",
+      "width": 400,
+      "height": 250
     }
   ]
 }

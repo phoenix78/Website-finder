@@ -4,6 +4,8 @@
 >
 > Auto-generated — updated after each Claude session. Last updated: 2026-04-02
 
+
+
 ---
 
 ## What is it?
@@ -15,6 +17,7 @@ A web-based quiz game where you identify celebrities through three different gam
 - **Name → Photo**: See a name, pick the right photo
 - **Body Part**: Identify a celebrity from eyes, hands, or silhouette
 - **Survival**: Infinite rounds — one mistake ends the game
+- **Private Game**: Create a custom quiz with your own people, share the link
 
 ---
 
@@ -28,9 +31,9 @@ npm install
 npm run dev
 # → http://localhost:3000
 
-# Production build (static export)
+# Production build (Node.js server)
 npm run build
-# → Output in /out
+npm start
 ```
 
 ---
@@ -39,12 +42,12 @@ npm run build
 
 | | |
 |---|---|
-| **Framework** | Next.js 14 (App Router, static export) |
+| **Framework** | Next.js 14 (App Router, Node.js server) |
 | **Language** | TypeScript 5 |
 | **Styling** | Tailwind CSS 3 + CSS custom properties |
 | **State** | React hooks (no external lib) |
 | **Persistence** | localStorage (scores, theme, language) |
-| **Images** | next/image (auto-serves WebP) |
+| **Images** | next/image (wikimedia + local SVG fallback) |
 
 ---
 
@@ -52,19 +55,24 @@ npm run build
 
 ```
 src/
-├── app/              # Next.js pages
+├── app/
+│   ├── page.tsx           # Home (variant / difficulty / category selector)
+│   ├── play/[v]/[d]/      # Classic game
+│   ├── survival/          # Survival mode
+│   ├── create/            # Private party creator
+│   └── party/             # Private party player (?g=<base64>)
 ├── components/
-│   ├── game/         # GameShell, SurvivalShell, ResultScreen, RoundFeedback
-│   ├── variants/     # PhotoToName, NameToPhoto, BodyPart
-│   ├── ui/           # Button, Timer, ProgressBar, Leaderboard, …
-│   └── layout/       # Header, Footer
-├── engine/           # Pure game logic (score, questions, validation)
-├── hooks/            # useGame, useSurvival
-├── data/             # Celebrity JSON files (22 celebrities)
-├── game-registry/    # Plugin-style variant system
-├── i18n/             # Translations (en, fr, de, es, it)
-├── lib/              # Utility functions + leaderboard
-└── types/            # Shared TypeScript types
+│   ├── game/              # GameShell, PartyGameShell, SurvivalShell, ResultScreen, RoundFeedback
+│   ├── variants/          # PhotoToName, NameToPhoto, BodyPart
+│   ├── ui/                # Button, Timer, ProgressBar, Leaderboard, …
+│   └── layout/            # Header, Footer
+├── engine/                # Pure game logic (score, questions, validation)
+├── hooks/                 # useGame, useSurvival, usePartyGame
+├── data/                  # Celebrity JSON files (22 celebrities)
+├── game-registry/         # Plugin-style variant system
+├── i18n/                  # Translations (en, fr, de, es, it)
+├── lib/                   # Utility functions + leaderboard + party
+└── types/                 # Shared TypeScript types (game.ts, party.ts)
 ```
 
 ---
@@ -116,6 +124,21 @@ Push to `main` — auto-deploys via `netlify.toml`.
 ### Nginx
 
 Use `nginx.conf.example` to serve the `/out` static export.
+
+---
+
+## Private Party Mode
+
+Create a custom game with any people you choose (celebrities or private individuals):
+
+1. Go to **`/create`** (or click "Private Game" on the home page)
+2. Enter a title (optional) and choose variant + difficulty
+3. Add 4+ people with a name and a photo URL each
+4. Click **Generate link** — a shareable `/party?g=<code>` URL is created
+5. Share the link — anyone with it can play (no account required)
+
+The entire game config is encoded in the URL (base64 JSON) — **no server needed**.
+Scores from private games are not saved to the leaderboard.
 
 ---
 

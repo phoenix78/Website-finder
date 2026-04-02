@@ -2,7 +2,7 @@
 
 export type Difficulty = 'easy' | 'medium' | 'expert'
 export type VariantId = 'photo-to-name' | 'name-to-photo' | 'body-part'
-export type CategoryId = 'actors' | 'musicians' | 'athletes' | 'politicians' | 'all'
+export type CategoryId = 'actors' | 'musicians' | 'athletes' | 'politicians' | 'all' | 'custom'
 export type ImageType = 'face' | 'full-body' | 'body-part'
 export type BodyPartType = 'eyes' | 'mouth' | 'hands' | 'silhouette' | 'back'
 

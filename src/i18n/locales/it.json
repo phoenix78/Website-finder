@@ -123,6 +123,30 @@
     "clear": "Cancella classifica",
     "confirm_clear": "Sei sicuro di voler cancellare tutti i punteggi?"
   },
+  "party": {
+    "create_title": "Crea una partita privata",
+    "create_title_short": "Partita privata",
+    "create_subtitle": "Aggiungi i tuoi personaggi e condividi il link con gli amici.",
+    "party_title": "Partita privata",
+    "party_title_label": "Titolo della partita (opzionale)",
+    "party_title_placeholder": "Es.: Quiz in ufficio, Serata di giochi…",
+    "people_list": "Personaggi",
+    "add_person": "Aggiungi un personaggio",
+    "person_name": "Nome da mostrare",
+    "person_photo": "URL della foto (https://…)",
+    "person_aliases": "Altri nomi accettati, separati da virgole (opzionale)",
+    "generate_link": "Genera link",
+    "link_ready": "Il tuo link per la partita privata",
+    "copy_link": "Copia link",
+    "link_copied": "Link copiato!",
+    "play_now": "Gioca adesso",
+    "min_people": "Min. {n} personaggi",
+    "people": "personaggi",
+    "invalid_link": "Link non valido",
+    "invalid_link_missing": "Nessun link di partita trovato. Usa il link completo condiviso dal creatore.",
+    "invalid_link_desc": "Questo link di partita non è valido o è stato modificato. Chiedi al creatore di rigenerarlo.",
+    "create_your_own": "Crea la mia partita"
+  },
   "footer": {
     "tagline": "Metti alla prova le tue conoscenze sulle celebrità",
     "demo_notice": "Le foto sono segnaposto — sostituiscile con immagini reali in"

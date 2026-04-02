@@ -123,6 +123,30 @@
     "clear": "Effacer le classement",
     "confirm_clear": "Voulez-vous vraiment effacer tous les scores ?"
   },
+  "party": {
+    "create_title": "Créer une partie privée",
+    "create_title_short": "Partie privée",
+    "create_subtitle": "Ajoutez vos propres personnages et partagez le lien avec vos amis.",
+    "party_title": "Partie privée",
+    "party_title_label": "Titre de la partie (optionnel)",
+    "party_title_placeholder": "Ex. : Quiz de bureau, Soirée entre amis…",
+    "people_list": "Personnages",
+    "add_person": "Ajouter un personnage",
+    "person_name": "Nom affiché",
+    "person_photo": "URL de la photo (https://…)",
+    "person_aliases": "Autres noms acceptés, séparés par des virgules (optionnel)",
+    "generate_link": "Générer le lien",
+    "link_ready": "Votre lien de partie privée",
+    "copy_link": "Copier le lien",
+    "link_copied": "Lien copié !",
+    "play_now": "Jouer maintenant",
+    "min_people": "Min. {n} personnages",
+    "people": "personnages",
+    "invalid_link": "Lien invalide",
+    "invalid_link_missing": "Aucun lien de partie détecté. Utilisez le lien complet partagé par le créateur.",
+    "invalid_link_desc": "Ce lien de partie est invalide ou a été modifié. Demandez au créateur de le regénérer.",
+    "create_your_own": "Créer ma propre partie"
+  },
   "footer": {
     "tagline": "Testez vos connaissances sur les célébrités",
     "demo_notice": "Les photos sont des placeholders — remplacez-les par les vraies images dans"

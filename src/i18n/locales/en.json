@@ -123,6 +123,30 @@
     "clear": "Clear leaderboard",
     "confirm_clear": "Are you sure you want to clear all scores?"
   },
+  "party": {
+    "create_title": "Create a private game",
+    "create_title_short": "Private Game",
+    "create_subtitle": "Add your own people and share the link with friends.",
+    "party_title": "Private Game",
+    "party_title_label": "Game title (optional)",
+    "party_title_placeholder": "e.g. Office Quiz, Game Night…",
+    "people_list": "People",
+    "add_person": "Add a person",
+    "person_name": "Display name",
+    "person_photo": "Photo URL (https://…)",
+    "person_aliases": "Extra accepted names, comma-separated (optional)",
+    "generate_link": "Generate link",
+    "link_ready": "Your private game link",
+    "copy_link": "Copy link",
+    "link_copied": "Link copied!",
+    "play_now": "Play now",
+    "min_people": "Min. {n} people",
+    "people": "people",
+    "invalid_link": "Invalid link",
+    "invalid_link_missing": "No game link found. Use the full link shared by the creator.",
+    "invalid_link_desc": "This game link is invalid or has been modified. Ask the creator to regenerate it.",
+    "create_your_own": "Create my own game"
+  },
   "footer": {
     "tagline": "Test your celebrity knowledge",
     "demo_notice": "Photos are placeholders — replace them with real images in"

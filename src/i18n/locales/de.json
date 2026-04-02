@@ -123,6 +123,30 @@
     "clear": "Bestenliste löschen",
     "confirm_clear": "Möchten Sie wirklich alle Punkte löschen?"
   },
+  "party": {
+    "create_title": "Privates Spiel erstellen",
+    "create_title_short": "Privates Spiel",
+    "create_subtitle": "Füge eigene Personen hinzu und teile den Link mit Freunden.",
+    "party_title": "Privates Spiel",
+    "party_title_label": "Spieltitel (optional)",
+    "party_title_placeholder": "z. B. Büro-Quiz, Spieleabend…",
+    "people_list": "Personen",
+    "add_person": "Person hinzufügen",
+    "person_name": "Anzeigename",
+    "person_photo": "Foto-URL (https://…)",
+    "person_aliases": "Weitere akzeptierte Namen, durch Komma getrennt (optional)",
+    "generate_link": "Link generieren",
+    "link_ready": "Ihr privater Spiel-Link",
+    "copy_link": "Link kopieren",
+    "link_copied": "Link kopiert!",
+    "play_now": "Jetzt spielen",
+    "min_people": "Mind. {n} Personen",
+    "people": "Personen",
+    "invalid_link": "Ungültiger Link",
+    "invalid_link_missing": "Kein Spiel-Link gefunden. Verwende den vollständigen Link des Erstellers.",
+    "invalid_link_desc": "Dieser Spiel-Link ist ungültig oder wurde verändert. Bitte den Ersteller, ihn neu zu generieren.",
+    "create_your_own": "Eigenes Spiel erstellen"
+  },
   "footer": {
     "tagline": "Testen Sie Ihr Wissen über Berühmtheiten",
     "demo_notice": "Fotos sind Platzhalter — ersetzen Sie sie durch echte Bilder in"

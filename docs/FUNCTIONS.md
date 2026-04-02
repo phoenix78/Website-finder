@@ -132,6 +132,30 @@ Manages infinite survival mode (play until first mistake).
 
 ---
 
+### `usePartyGame.ts`
+`src/hooks/usePartyGame.ts`
+
+Game hook for private party mode. Accepts a fixed `Celebrity[]` pool instead of `ALL_CELEBRITIES`.
+
+```typescript
+function usePartyGame(pool: Celebrity[]): {
+  state: GameState
+  startGame: (variant: VariantId, difficulty: Difficulty) => void
+  submitAnswer: (chosen: string) => void
+  nextRound: () => void
+  timeExpired: () => void
+  resetGame: () => void
+}
+```
+
+Behaviour is identical to `useGame` except:
+- Pool is fixed to the provided `Celebrity[]`
+- `category` is always `'custom'`
+- Rounds = `min(10, pool.length)`
+- No leaderboard save
+
+---
+
 ## Lib / Utilities
 
 ### `utils.ts`
@@ -147,6 +171,23 @@ Manages infinite survival mode (play until first mistake).
 | `formatScore` | `(score: number) => string` | Formats score with locale-aware comma separator |
 | `formatTime` | `(seconds: number) => string` | Formats seconds as `mm:ss` |
 | `formatPercent` | `(value: number, total: number) => string` | Returns `"XX%"` string |
+
+---
+
+### `party.ts`
+`src/lib/party.ts`
+
+Party / private game encoding, decoding, and conversion utilities.
+
+| Constant / Function | Signature | Description |
+|---------------------|-----------|-------------|
+| `PARTY_MIN_PEOPLE` | `number` (4) | Minimum people required to create a party |
+| `VARIANT_MAP` | `Record<PartyVariant, VariantId>` | Maps `'ptn'` / `'ntp'` → full VariantId |
+| `DIFF_MAP` | `Record<PartyDifficulty, Difficulty>` | Maps `'e'` / `'m'` / `'x'` → full Difficulty |
+| `encodePartyConfig` | `(config: PartyConfig) => string` | Serialises config to URL-safe base64 |
+| `decodePartyConfig` | `(encoded: string) => PartyConfig \| null` | Deserialises + validates; returns null on failure |
+| `validatePartyConfig` | `(config: unknown) => config is PartyConfig` | Type guard — checks all required fields and constraints |
+| `partyConfigToCelebrities` | `(config: PartyConfig) => Celebrity[]` | Converts a PartyConfig into a `Celebrity[]` pool compatible with the game engine |
 
 ---
 
@@ -239,6 +280,21 @@ Orchestrates a complete classic game session.
 | `category` | `CategoryId` | Celebrity category filter |
 
 Renders: `<Timer>` → variant component → `<RoundFeedback>` → `<ResultScreen>`
+
+---
+
+### `PartyGameShell.tsx`
+`src/components/game/PartyGameShell.tsx`
+
+Orchestrates private party games. Replaces ALL_CELEBRITIES with a user-supplied pool.
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `config` | `PartyConfig` | Decoded party configuration (variant, difficulty, title) |
+| `pool` | `Celebrity[]` | Celebrity pool built from `partyConfigToCelebrities(config)` |
+
+States: idle (participant preview) → playing → feedback → complete.
+Result screen does **not** save to leaderboard.
 
 ---
 
@@ -352,23 +408,47 @@ Displays an isolated body part (eyes, mouth, etc.); user guesses the celebrity.
 | Route | File | Description |
 |-------|------|-------------|
 | `/` | `src/app/page.tsx` | Home — variant/difficulty/category selector |
-| `/play/[variant]/[difficulty]` | `src/app/play/[variant]/[difficulty]/page.tsx` | SSG shell; reads params |
+| `/play/[variant]/[difficulty]` | `src/app/play/[variant]/[difficulty]/page.tsx` | Shell; reads params |
 | `/play/[variant]/[difficulty]` | `src/app/play/[variant]/[difficulty]/PlayClient.tsx` | Client component mounting `<GameShell>` |
 | `/survival` | `src/app/survival/page.tsx` | Survival mode entry; mounts `<SurvivalShell>` |
+| `/create` | `src/app/create/page.tsx` | Private party creator form |
+| `/party` | `src/app/party/page.tsx` | Suspense wrapper |
+| `/party` | `src/app/party/PartyClient.tsx` | Reads `?g=`, decodes config, mounts `<PartyGameShell>` |
 
 ---
 
 ## Types Reference
-`src/types/game.ts`
+
+### `src/types/game.ts`
 
 ```typescript
 type Difficulty   = 'easy' | 'medium' | 'expert'
 type VariantId    = 'photo-to-name' | 'name-to-photo' | 'body-part'
-type CategoryId   = 'actors' | 'musicians' | 'athletes' | 'politicians' | 'all'
+type CategoryId   = 'actors' | 'musicians' | 'athletes' | 'politicians' | 'all' | 'custom'
 type ImageType    = 'face' | 'full-body' | 'body-part'
 type BodyPartType = 'eyes' | 'mouth' | 'hands' | 'silhouette' | 'back'
 type GameMode     = 'classic' | 'survival'
 type GameState    = 'idle' | 'playing' | 'feedback' | 'complete'
 type SurvivalState = 'idle' | 'playing' | 'feedback' | 'dead'
 type Grade        = 'S' | 'A' | 'B' | 'C' | 'D'
+```
+
+### `src/types/party.ts`
+
+```typescript
+type PartyVariant    = 'ptn' | 'ntp'   // abbreviations for URL compactness
+type PartyDifficulty = 'e' | 'm' | 'x'
+
+interface PartyConfig {
+  v: PartyVariant
+  d: PartyDifficulty
+  t?: string          // optional game title
+  p: PartyPerson[]    // min 4 entries
+}
+
+interface PartyPerson {
+  n: string           // display name
+  i: string           // photo URL (must start with http:// or https://)
+  a?: string[]        // aliases for expert free-text validation
+}
 ```

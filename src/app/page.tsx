@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import type { VariantId, Difficulty, CategoryId } from '@/types/game'
 import { GameRegistry } from '@/game-registry'
 import { getCategoryCounts } from '@/data'
@@ -170,6 +171,14 @@ export default function HomePage() {
         >
           ⚡ {t('survival.title')}
         </a>
+
+        {/* Private party CTA */}
+        <Link
+          href="/create"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 bg-purple-600 hover:bg-purple-700 text-white font-black text-lg rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-purple-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+        >
+          🔒 {t('party.create_title_short')}
+        </Link>
       </div>
 
       {/* Leaderboard button */}

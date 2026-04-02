@@ -323,7 +323,7 @@ idle ──startSurvival()──► playing ──submitAnswer()──► feedba
 
 ## Routing
 
-Uses Next.js App Router with static export.
+Uses Next.js App Router (Node.js server, no static export).
 
 ```
 /                                   Home — game setup
@@ -336,9 +336,58 @@ Uses Next.js App Router with static export.
 /play/body-part/medium              Body part (4 choices, 30s)
 /play/body-part/expert              Body part (free text, 50s)
 /survival                           Infinite survival mode
+/create                             Private party creator
+/party?g=<base64>                   Private party player
 ```
 
-Query param: `?category=actors|musicians|athletes|politicians|all`
+Query param for classic: `?category=actors|musicians|athletes|politicians|all`
+
+---
+
+## Private Party Mode
+
+The private party system lets anyone create a custom game with their own people (celebrities or private individuals) and share a link. No server or database required.
+
+### Flow
+
+```
+/create → user fills form → encodePartyConfig() → /party?g=<base64>
+/party?g=<base64> → decodePartyConfig() → partyConfigToCelebrities() → PartyGameShell
+```
+
+### PartyConfig (serialised in URL)
+
+```typescript
+interface PartyConfig {
+  v: 'ptn' | 'ntp'   // variant abbreviation
+  d: 'e' | 'm' | 'x' // difficulty abbreviation
+  t?: string          // optional title
+  p: PartyPerson[]    // list of people (min 4)
+}
+
+interface PartyPerson {
+  n: string           // display name
+  i: string           // photo URL
+  a?: string[]        // aliases for expert mode
+}
+```
+
+### Encoding
+
+- `encodePartyConfig(config)` → URL-safe base64 (no `+`, `/` or `=`)
+- `decodePartyConfig(str)` → `PartyConfig | null` (null if invalid)
+- `validatePartyConfig(obj)` → type guard
+- `partyConfigToCelebrities(config)` → `Celebrity[]` (category = `'custom'`)
+
+### Constraints
+
+| Item | Value |
+|------|-------|
+| Min people | 4 |
+| Max rounds | min(10, pool.length) |
+| Supported variants | photo-to-name, name-to-photo |
+| Leaderboard | Not saved |
+| Auth required | No |
 
 ---
 

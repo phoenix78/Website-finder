@@ -12,11 +12,11 @@
   "description": "American professional tennis player",
   "images": [
     {
-      "url": "/celebrities/athletes/serena-williams.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Serena_Williams_at_2013_US_Open.jpg/500px-Serena_Williams_at_2013_US_Open.jpg",
       "type": "face",
-      "alt": "Serena Williams — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Serena Williams — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/athletes/serena-williams-full.svg",

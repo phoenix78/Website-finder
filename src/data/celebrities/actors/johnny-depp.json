@@ -12,11 +12,11 @@
   "description": "American actor and musician",
   "images": [
     {
-      "url": "/celebrities/actors/johnny-depp.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Johnny_Depp_-_SDCC_2015.jpg/500px-Johnny_Depp_-_SDCC_2015.jpg",
       "type": "face",
-      "alt": "Johnny Depp — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Johnny Depp — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/actors/johnny-depp-full.svg",

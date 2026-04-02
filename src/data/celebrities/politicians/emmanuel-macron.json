@@ -13,11 +13,11 @@
   "description": "President of France since 2017",
   "images": [
     {
-      "url": "/celebrities/politicians/emmanuel-macron.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Emmanuel_Macron_in_2019.jpg/500px-Emmanuel_Macron_in_2019.jpg",
       "type": "face",
-      "alt": "Emmanuel Macron — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Emmanuel Macron — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/politicians/emmanuel-macron-full.svg",

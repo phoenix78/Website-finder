@@ -13,11 +13,11 @@
   "description": "American singer-songwriter",
   "images": [
     {
-      "url": "/celebrities/musicians/taylor-swift.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png/500px-191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png",
       "type": "face",
-      "alt": "Taylor Swift — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Taylor Swift — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/musicians/taylor-swift-full.svg",

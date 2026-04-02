@@ -14,11 +14,11 @@
   "description": "American rapper, songwriter and record producer",
   "images": [
     {
-      "url": "/celebrities/musicians/eminem.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%281%29_%28Gage_Skidmore%29.jpg/500px-Eminem_-_Concert_for_Valor_in_Washington%2C_D.C._Nov._11%2C_2014_%281%29_%28Gage_Skidmore%29.jpg",
       "type": "face",
-      "alt": "Eminem — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Eminem — portrait Wikipedia",
+      "width": 500,
+      "height": 598
     },
     {
       "url": "/celebrities/musicians/eminem-full.svg",

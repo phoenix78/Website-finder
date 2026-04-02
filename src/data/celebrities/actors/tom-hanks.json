@@ -12,11 +12,11 @@
   "description": "American actor and filmmaker",
   "images": [
     {
-      "url": "/celebrities/actors/tom-hanks.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tom_Hanks_TIFF_2019.jpg/500px-Tom_Hanks_TIFF_2019.jpg",
       "type": "face",
-      "alt": "Tom Hanks — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Tom Hanks — portrait Wikipedia",
+      "width": 500,
+      "height": 625
     },
     {
       "url": "/celebrities/actors/tom-hanks-full.svg",

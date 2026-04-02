@@ -14,11 +14,11 @@
   "description": "American singer, songwriter and actress",
   "images": [
     {
-      "url": "/celebrities/musicians/madonna.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Madonna_-_2008_%28cropped%29.jpg/500px-Madonna_-_2008_%28cropped%29.jpg",
       "type": "face",
-      "alt": "Madonna — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Madonna — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/musicians/madonna-full.svg",

@@ -14,11 +14,11 @@
   "description": "American singer, songwriter and actress",
   "images": [
     {
-      "url": "/celebrities/musicians/beyonce.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Beyonc%C3%A9_at_The_Lion_King_European_Premiere_2019.png/500px-Beyonc%C3%A9_at_The_Lion_King_European_Premiere_2019.png",
       "type": "face",
-      "alt": "Beyoncé — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Beyoncé — portrait Wikipedia",
+      "width": 500,
+      "height": 562
     },
     {
       "url": "/celebrities/musicians/beyonce-full.svg",

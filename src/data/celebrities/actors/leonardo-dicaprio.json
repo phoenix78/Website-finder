@@ -13,11 +13,11 @@
   "description": "American actor and film producer",
   "images": [
     {
-      "url": "/celebrities/actors/leonardo-dicaprio.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/LeoPTABFI191125-28_%28cropped%29.jpg/500px-LeoPTABFI191125-28_%28cropped%29.jpg",
       "type": "face",
-      "alt": "Leonardo DiCaprio — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Leonardo DiCaprio — portrait Wikipedia",
+      "width": 500,
+      "height": 652
     },
     {
       "url": "/celebrities/actors/leonardo-dicaprio-full.svg",

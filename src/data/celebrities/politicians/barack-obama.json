@@ -14,11 +14,11 @@
   "description": "44th President of the United States",
   "images": [
     {
-      "url": "/celebrities/politicians/barack-obama.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/800px-President_Barack_Obama.jpg",
       "type": "face",
-      "alt": "Barack Obama — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Barack Obama — portrait Wikipedia",
+      "width": 800,
+      "height": 1006
     },
     {
       "url": "/celebrities/politicians/barack-obama-full.svg",

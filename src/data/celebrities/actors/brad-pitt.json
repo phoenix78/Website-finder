@@ -13,11 +13,11 @@
   "description": "American actor and film producer",
   "images": [
     {
-      "url": "/celebrities/actors/brad-pitt.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Brad_Pitt_2019_by_Glenn_Francis.jpg/500px-Brad_Pitt_2019_by_Glenn_Francis.jpg",
       "type": "face",
-      "alt": "Brad Pitt — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Brad Pitt — portrait Wikipedia",
+      "width": 500,
+      "height": 667
     },
     {
       "url": "/celebrities/actors/brad-pitt-full.svg",

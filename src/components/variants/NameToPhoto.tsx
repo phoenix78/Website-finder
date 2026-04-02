@@ -1,9 +1,26 @@
 'use client'
 
 import Image from 'next/image'
-import type { GameRound, Difficulty } from '@/types/game'
+import { useState } from 'react'
+import type { GameRound, Difficulty, Celebrity } from '@/types/game'
 import { useT } from '@/i18n'
 import { cn } from '@/lib/utils'
+
+function CelebrityPhoto({ celebrity }: { celebrity: Celebrity }) {
+  const faceImage = celebrity.images.find((img) => img.type === 'face') ?? celebrity.images[0]
+  const svgFallback = `/celebrities/${celebrity.category}/${celebrity.slug}.svg`
+  const [src, setSrc] = useState(faceImage.url)
+  return (
+    <Image
+      src={src}
+      alt={faceImage.alt}
+      fill
+      className="object-cover"
+      sizes="(max-width: 640px) 45vw, 200px"
+      onError={() => setSrc(svgFallback)}
+    />
+  )
+}
 
 interface NameToPhotoProps {
   round: GameRound
@@ -47,8 +64,6 @@ export function NameToPhoto({
         )}
       >
         {round.choices.map((celebrity) => {
-          const faceImage =
-            celebrity.images.find((img) => img.type === 'face') ?? celebrity.images[0]
           const state = getChoiceState(celebrity.slug)
 
           return (
@@ -65,13 +80,7 @@ export function NameToPhoto({
                 state === 'default' && 'border-game-border hover:border-game-accent active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed'
               )}
             >
-              <Image
-                src={faceImage.url}
-                alt={faceImage.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 45vw, 200px"
-              />
+              <CelebrityPhoto celebrity={celebrity} />
               {state === 'correct' && (
                 <div className="absolute inset-0 bg-green-500/20 flex items-center justify-center">
                   <span className="text-3xl">✓</span>

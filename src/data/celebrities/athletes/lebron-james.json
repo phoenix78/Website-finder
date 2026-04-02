@@ -14,11 +14,11 @@
   "description": "American professional basketball player",
   "images": [
     {
-      "url": "/celebrities/athletes/lebron-james.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/LeBron_James_crop.jpg/500px-LeBron_James_crop.jpg",
       "type": "face",
-      "alt": "LeBron James — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "LeBron James — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/athletes/lebron-james-full.svg",

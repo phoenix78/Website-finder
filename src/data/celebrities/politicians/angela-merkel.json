@@ -13,11 +13,11 @@
   "description": "Former Chancellor of Germany 2005–2021",
   "images": [
     {
-      "url": "/celebrities/politicians/angela-merkel.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Angela_Merkel_2019_cropped.jpg/500px-Angela_Merkel_2019_cropped.jpg",
       "type": "face",
-      "alt": "Angela Merkel — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Angela Merkel — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/politicians/angela-merkel-full.svg",

@@ -13,11 +13,11 @@
   "description": "American actress, filmmaker and humanitarian",
   "images": [
     {
-      "url": "/celebrities/actors/angelina-jolie.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg/500px-Angelina_Jolie_2_June_2014_%28cropped%29.jpg",
       "type": "face",
-      "alt": "Angelina Jolie — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Angelina Jolie — portrait Wikipedia",
+      "width": 500,
+      "height": 620
     },
     {
       "url": "/celebrities/actors/angelina-jolie-full.svg",

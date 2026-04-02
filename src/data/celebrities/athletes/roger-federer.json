@@ -13,11 +13,11 @@
   "description": "Swiss professional tennis player",
   "images": [
     {
-      "url": "/celebrities/athletes/roger-federer.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Roger_Federer_2018_Wimbledon.jpg/500px-Roger_Federer_2018_Wimbledon.jpg",
       "type": "face",
-      "alt": "Roger Federer — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Roger Federer — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/athletes/roger-federer-full.svg",

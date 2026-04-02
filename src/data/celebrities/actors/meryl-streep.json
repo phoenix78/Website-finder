@@ -12,11 +12,11 @@
   "description": "American actress with record 21 Academy Award nominations",
   "images": [
     {
-      "url": "/celebrities/actors/meryl-streep.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Meryl_Streep_December_2018.jpg/500px-Meryl_Streep_December_2018.jpg",
       "type": "face",
-      "alt": "Meryl Streep — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Meryl Streep — portrait Wikipedia",
+      "width": 500,
+      "height": 650
     },
     {
       "url": "/celebrities/actors/meryl-streep-full.svg",

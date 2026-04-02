@@ -14,11 +14,11 @@
   "description": "American singer, songwriter and dancer",
   "images": [
     {
-      "url": "/celebrities/musicians/michael-jackson.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Michael_Jackson_-_Stranger_in_Moscow_%28music_video%29_1.jpg/500px-Michael_Jackson_-_Stranger_in_Moscow_%28music_video%29_1.jpg",
       "type": "face",
-      "alt": "Michael Jackson — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Michael Jackson — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/musicians/michael-jackson-full.svg",

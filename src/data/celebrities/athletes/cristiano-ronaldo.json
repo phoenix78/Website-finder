@@ -14,11 +14,11 @@
   "description": "Portuguese professional footballer",
   "images": [
     {
-      "url": "/celebrities/athletes/cristiano-ronaldo.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/500px-Cristiano_Ronaldo_2018.jpg",
       "type": "face",
-      "alt": "Cristiano Ronaldo — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Cristiano Ronaldo — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/athletes/cristiano-ronaldo-full.svg",

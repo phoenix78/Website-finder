@@ -13,11 +13,11 @@
   "description": "Jamaican retired sprinter and Olympic champion",
   "images": [
     {
-      "url": "/celebrities/athletes/usain-bolt.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Usain_Bolt_by_Michael_Alberstat.jpg/500px-Usain_Bolt_by_Michael_Alberstat.jpg",
       "type": "face",
-      "alt": "Usain Bolt — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Usain Bolt — portrait Wikipedia",
+      "width": 500,
+      "height": 600
     },
     {
       "url": "/celebrities/athletes/usain-bolt-full.svg",

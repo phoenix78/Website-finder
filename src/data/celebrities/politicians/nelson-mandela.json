@@ -14,11 +14,11 @@
   "description": "First President of South Africa after apartheid",
   "images": [
     {
-      "url": "/celebrities/politicians/nelson-mandela.svg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nelson_Mandela_1994.jpg/800px-Nelson_Mandela_1994.jpg",
       "type": "face",
-      "alt": "Nelson Mandela — portrait",
-      "width": 400,
-      "height": 400
+      "alt": "Nelson Mandela — portrait Wikipedia",
+      "width": 800,
+      "height": 1018
     },
     {
       "url": "/celebrities/politicians/nelson-mandela-full.svg",

@@ -68,7 +68,7 @@ export function SurvivalShell() {
   // ── Idle ───────────────────────────────────────────────────────────────────
   if (state.status === 'idle') {
     return (
-      <div className="flex flex-col items-center gap-8 py-8 animate-fade-in max-w-lg mx-auto w-full">
+      <div className="flex flex-col items-center gap-8 py-8 animate-fade-in mx-auto w-full">
 
         <div className="text-center">
           <div className="text-6xl mb-3">⚡</div>
@@ -143,7 +143,7 @@ export function SurvivalShell() {
   if (state.status === 'dead') {
     const rounds = state.roundNumber - 1
     return (
-      <div className="flex flex-col items-center gap-6 py-8 animate-fade-in max-w-lg mx-auto w-full">
+      <div className="flex flex-col items-center gap-6 py-8 animate-fade-in mx-auto w-full">
 
         {/* Death screen */}
         <div className="text-center">
@@ -226,7 +226,7 @@ export function SurvivalShell() {
   }
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
+    <div className="flex flex-col gap-4 w-full max-w-3xl mx-auto">
       {/* Survival HUD */}
       <div className="flex items-center justify-between bg-orange-500/10 border border-orange-500/30 rounded-2xl px-4 py-2.5">
         <div className="flex items-center gap-2">
@@ -253,23 +253,29 @@ export function SurvivalShell() {
       )}
 
       {/* Question */}
-      <div key={round.id} className="min-h-[360px] flex items-start justify-center animate-slide-in">
+      <div key={round.id} className="min-h-[480px] flex items-start justify-center w-full animate-slide-in">
         {renderVariant()}
       </div>
 
-      {/* Feedback bar */}
+      {/* Feedback modal */}
       {isFeedback && state.lastAnswer && (
-        <div className="flex items-center justify-between bg-green-500/10 border border-green-500/30 rounded-2xl px-4 py-3">
-          <div className="flex items-center gap-2">
-            <span className="text-green-500 text-xl">✓</span>
-            <span className="text-green-500 font-bold text-sm">{t('game.correct')}</span>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="w-full max-w-sm bg-game-card border border-game-border rounded-3xl p-6 shadow-2xl flex flex-col items-center gap-5">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center text-4xl bg-green-500/20 text-green-500">
+              ✓
+            </div>
+            <p className="text-xl font-bold text-green-500">{t('game.correct')}</p>
+            <p className="text-game-muted text-sm">
+              {t('game.it_was')}{' '}
+              <span className="text-game-text font-semibold">{round.target.name}</span>
+            </p>
+            <button
+              onClick={nextRound}
+              className="w-full py-3 px-6 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            >
+              {t('game.next_question')} →
+            </button>
           </div>
-          <button
-            onClick={nextRound}
-            className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm rounded-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-          >
-            {t('game.next_question')} →
-          </button>
         </div>
       )}
     </div>

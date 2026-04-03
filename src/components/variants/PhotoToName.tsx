@@ -45,14 +45,14 @@ export function PhotoToName({
 
   return (
     <div className="flex flex-col items-center gap-6 w-full animate-slide-up">
-      <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-2 border-game-border shadow-2xl">
+      <div className="relative w-72 h-72 sm:w-96 sm:h-96 rounded-2xl overflow-hidden border-2 border-game-border shadow-2xl">
         <Image
           src={imgSrc}
           alt={round.targetImage.alt}
           fill
           className="object-cover"
           priority
-          sizes="(max-width: 640px) 224px, 288px"
+          sizes="(max-width: 640px) 288px, 384px"
           onError={() => setImgSrc(svgFallback)}
         />
       </div>

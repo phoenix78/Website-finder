@@ -46,7 +46,7 @@ function AnimatedQuestion({
     }
   }, [isWrong])
 
-  return <div key={roundId} className={animClass}>{children}</div>
+  return <div key={roundId} className={`w-full ${animClass}`}>{children}</div>
 }
 
 // ── Party result screen (no leaderboard save) ────────────────────────────────
@@ -261,7 +261,7 @@ export function PartyGameShell({ config, pool }: PartyGameShellProps) {
   }
 
   return (
-    <div className="flex flex-col gap-5 w-full max-w-lg mx-auto">
+    <div className="flex flex-col gap-5 w-full max-w-3xl mx-auto">
       {config.t && (
         <p className="text-center text-game-muted text-xs font-medium">🔒 {config.t}</p>
       )}
@@ -288,7 +288,7 @@ export function PartyGameShell({ config, pool }: PartyGameShellProps) {
         />
       )}
 
-      <div className="min-h-[360px] flex items-start justify-center">
+      <div className="min-h-[480px] flex items-start justify-center w-full">
         <AnimatedQuestion roundId={round.id} isWrong={isWrong}>
           {session.variant === 'name-to-photo'
             ? <NameToPhoto {...variantProps} />
@@ -298,13 +298,15 @@ export function PartyGameShell({ config, pool }: PartyGameShellProps) {
       </div>
 
       {isFeedback && state.lastAnswer && (
-        <div className="mt-2 animate-fade-in">
-          <RoundFeedback
-            answer={state.lastAnswer}
-            round={round}
-            isLastRound={isLastRound}
-            onNext={nextRound}
-          />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="w-full max-w-sm bg-game-card border border-game-border rounded-3xl p-6 shadow-2xl">
+            <RoundFeedback
+              answer={state.lastAnswer}
+              round={round}
+              isLastRound={isLastRound}
+              onNext={nextRound}
+            />
+          </div>
         </div>
       )}
     </div>

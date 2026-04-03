@@ -16,7 +16,7 @@ function CelebrityPhoto({ celebrity }: { celebrity: Celebrity }) {
       alt={faceImage.alt}
       fill
       className="object-cover"
-      sizes="(max-width: 640px) 45vw, 200px"
+      sizes="(max-width: 640px) 90vw, 48vw"
       onError={() => setSrc(svgFallback)}
     />
   )
@@ -48,7 +48,7 @@ export function NameToPhoto({
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 w-full animate-slide-up">
+    <div className="flex flex-col gap-6 w-full animate-slide-up">
       <div className="text-center">
         <p className="text-game-muted text-sm mb-2">{t('game.find_photo')}</p>
         <h2 className="text-2xl sm:text-3xl font-bold text-game-text">{round.target.name}</h2>
@@ -57,12 +57,7 @@ export function NameToPhoto({
         )}
       </div>
 
-      <div
-        className={cn(
-          'grid gap-3 w-full',
-          round.choices.length === 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'
-        )}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
         {round.choices.map((celebrity) => {
           const state = getChoiceState(celebrity.slug)
 

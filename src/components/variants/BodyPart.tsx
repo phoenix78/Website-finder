@@ -47,14 +47,14 @@ export function BodyPart({
 
   return (
     <div className="flex flex-col items-center gap-6 w-full animate-slide-up">
-      <div className="relative w-64 h-48 sm:w-80 sm:h-56 rounded-2xl overflow-hidden border-2 border-game-border shadow-2xl">
+      <div className="relative w-80 h-60 sm:w-96 sm:h-72 rounded-2xl overflow-hidden border-2 border-game-border shadow-2xl">
         <Image
           src={round.targetImage.url}
           alt={round.targetImage.alt}
           fill
           className="object-cover"
           priority
-          sizes="(max-width: 640px) 256px, 320px"
+          sizes="(max-width: 640px) 320px, 384px"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-game-bg/30 via-transparent to-transparent pointer-events-none" />
       </div>

@@ -50,7 +50,7 @@ function AnimatedQuestion({
   }, [isWrong])
 
   return (
-    <div key={roundId} className={animClass}>
+    <div key={roundId} className={`w-full ${animClass}`}>
       {children}
     </div>
   )
@@ -122,7 +122,7 @@ export function GameShell({ variant, difficulty, category }: GameShellProps) {
   }
 
   return (
-    <div className="flex flex-col gap-5 w-full max-w-lg mx-auto">
+    <div className="flex flex-col gap-5 w-full max-w-3xl mx-auto">
       <ScoreDisplay
         score={session.score}
         streak={session.streak}
@@ -145,20 +145,22 @@ export function GameShell({ variant, difficulty, category }: GameShellProps) {
         />
       )}
 
-      <div className="min-h-[360px] flex items-start justify-center">
+      <div className="min-h-[480px] flex items-start justify-center w-full">
         <AnimatedQuestion roundId={round.id} isWrong={isWrong}>
           {renderVariant()}
         </AnimatedQuestion>
       </div>
 
       {isFeedback && state.lastAnswer && (
-        <div className="mt-2 animate-fade-in">
-          <RoundFeedback
-            answer={state.lastAnswer}
-            round={round}
-            isLastRound={isLastRound}
-            onNext={nextRound}
-          />
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="w-full max-w-sm bg-game-card border border-game-border rounded-3xl p-6 shadow-2xl">
+            <RoundFeedback
+              answer={state.lastAnswer}
+              round={round}
+              isLastRound={isLastRound}
+              onNext={nextRound}
+            />
+          </div>
         </div>
       )}
     </div>

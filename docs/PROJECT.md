@@ -1,7 +1,7 @@
 # Project Documentation — Celebrity Quiz
 
 > Auto-generated — updated after each Claude session.
-> Last updated: 2026-04-02
+> Last updated: 2026-04-03
 
 ---
 

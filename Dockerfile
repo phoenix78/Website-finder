@@ -3,8 +3,8 @@
 #  Stages:
 #    deps     → install node_modules (cache layer)
 #    builder  → Next.js production build (Node.js server)
-#    runner   → minimal Node.js image running the Next.js server
 #    dev      → Node dev server with hot-reload
+#    runner   → minimal Node.js image running the Next.js server (default/prod)
 # =============================================================================
 
 # ── 1. deps: install dependencies only (cached unless package*.json changes) ──
@@ -33,7 +33,24 @@ RUN npx prisma generate
 
 RUN npm run build
 
-# ── 3. runner: minimal Node.js image running Next.js server ───────────────────
+# ── 3. dev: Next.js dev server (hot-reload) ───────────────────────────────────
+FROM node:20-alpine AS dev
+
+WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
+
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=development
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY package.json package-lock.json ./
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
+
+# ── 4. runner: minimal Node.js image running Next.js server (production) ──────
 FROM node:20-alpine AS runner
 
 WORKDIR /app
@@ -68,22 +85,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Run Prisma migrations then start the server
 CMD ["node", "server.js"]
-
-# ── 4. dev: Next.js dev server (hot-reload) ───────────────────────────────────
-FROM node:20-alpine AS dev
-
-WORKDIR /app
-
-RUN apk add --no-cache libc6-compat
-
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=development
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY package.json package-lock.json ./
-
-EXPOSE 3000
-
-CMD ["npm", "run", "dev"]

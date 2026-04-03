@@ -33,6 +33,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: runner
       cache_from:
         - type=local,src=/tmp/.buildx-cache
       cache_to:

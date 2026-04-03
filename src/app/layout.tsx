@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer'
 import { JsonLd, websiteJsonLd } from '@/components/seo/JsonLd'
 import { ThemeProvider, THEME_SCRIPT } from '@/contexts/theme'
 import { I18nProvider } from '@/i18n'
+import { SessionProvider } from '@/components/providers/SessionProvider'
 
 // Initialize game registry once at module load
 import '@/game-registry'
@@ -53,15 +54,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={websiteJsonLd()} />
       </head>
       <body className="flex flex-col min-h-dvh">
-        <ThemeProvider>
-          <I18nProvider>
-            <Header />
-            <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">
-              {children}
-            </main>
-            <Footer />
-          </I18nProvider>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider>
+            <I18nProvider>
+              <Header />
+              <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8">
+                {children}
+              </main>
+              <Footer />
+            </I18nProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   )

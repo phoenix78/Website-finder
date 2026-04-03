@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
+import { useSession } from 'next-auth/react'
 import type { VariantId, CategoryId } from '@/types/game'
 import { useSurvival } from '@/hooks/useSurvival'
 import { useT } from '@/i18n'
@@ -27,7 +28,35 @@ const CATEGORIES: { id: CategoryId; icon: string }[] = [
 
 export function SurvivalShell() {
   const { t } = useT()
+  const { data: authSession } = useSession()
   const { state, startSurvival, submitAnswer, nextRound, timeExpired, reset, timeLimit } = useSurvival()
+  const dbSavedRef = useRef(false)
+
+  // Save survival score to DB when game ends
+  useEffect(() => {
+    if (state.status === 'dead' && authSession?.user?.id && state.savedEntry && !dbSavedRef.current) {
+      dbSavedRef.current = true
+      const rounds = state.roundNumber - 1
+      fetch('/api/scores', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          score: state.score,
+          grade: state.savedEntry.grade,
+          variant: state.savedEntry.variant,
+          difficulty: state.savedEntry.difficulty,
+          correct: rounds,
+          total: 0,
+          maxStreak: state.maxStreak,
+          mode: 'survival',
+          survivalRounds: rounds,
+        }),
+      }).catch(() => {})
+    }
+    if (state.status !== 'dead') {
+      dbSavedRef.current = false
+    }
+  }, [state.status, authSession?.user?.id, state.savedEntry, state.score, state.roundNumber, state.maxStreak])
 
   const [selVariant,  setSelVariant]  = useState<VariantId>('photo-to-name')
   const [selCategory, setSelCategory] = useState<CategoryId>('all')

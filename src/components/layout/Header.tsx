@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
+import { AuthButton } from '@/components/ui/AuthButton'
 
 export function Header() {
   return (
@@ -21,6 +22,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <LanguageSelector />
           <ThemeToggle />
+          <AuthButton />
         </div>
 
       </div>

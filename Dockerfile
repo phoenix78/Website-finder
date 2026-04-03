@@ -2,9 +2,9 @@
 #  Celebrity Quiz — Multi-stage Dockerfile
 #  Stages:
 #    deps     → install node_modules (cache layer)
-#    builder  → Next.js production build → /app/out
-#    runner   → nginx:alpine serving the static export (~20 MB final image)
-#    dev      → Node dev server with hot-reload (used by docker-compose.dev.yml)
+#    builder  → Next.js production build (Node.js server)
+#    runner   → minimal Node.js image running the Next.js server
+#    dev      → Node dev server with hot-reload
 # =============================================================================
 
 # ── 1. deps: install dependencies only (cached unless package*.json changes) ──
@@ -12,7 +12,6 @@ FROM node:20-alpine AS deps
 
 WORKDIR /app
 
-# Install only what's needed to compile native addons (if any)
 RUN apk add --no-cache libc6-compat
 
 COPY package.json package-lock.json ./
@@ -23,44 +22,54 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Re-use installed node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
-
-# Copy source
 COPY . .
 
-# Disable Next.js telemetry during build
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+# Generate Prisma client
+RUN npx prisma generate
+
 RUN npm run build
 
-# ── 3. runner: minimal nginx image serving the static export ──────────────────
-FROM nginx:1.27-alpine AS runner
+# ── 3. runner: minimal Node.js image running Next.js server ───────────────────
+FROM node:20-alpine AS runner
+
+WORKDIR /app
 
 LABEL org.opencontainers.image.title="Celebrity Quiz"
-LABEL org.opencontainers.image.description="Celebrity guessing game — static export served by nginx"
+LABEL org.opencontainers.image.description="Celebrity guessing game — Next.js server"
 LABEL org.opencontainers.image.source="https://github.com/phoenix78/Website-finder"
 
-# Remove default nginx config and html
-RUN rm -rf /usr/share/nginx/html/* /etc/nginx/conf.d/default.conf
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Copy our hardened nginx config
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+RUN apk add --no-cache libc6-compat
 
-# Copy static export from builder
-COPY --from=builder /app/out /usr/share/nginx/html
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs \
+    && adduser --system --uid 1001 nextjs
 
-# nginx runs as non-root (nginx user exists by default in nginx:alpine)
-RUN chown -R nginx:nginx /usr/share/nginx/html \
-    && chmod -R 755 /usr/share/nginx/html
+# Copy built artifacts
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
-EXPOSE 80
+RUN chown -R nextjs:nodejs /app
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD wget -qO- http://localhost/index.html || exit 1
+USER nextjs
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Run Prisma migrations then start the server
+CMD ["node", "server.js"]
 
 # ── 4. dev: Next.js dev server (hot-reload) ───────────────────────────────────
 FROM node:20-alpine AS dev
@@ -72,8 +81,6 @@ RUN apk add --no-cache libc6-compat
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=development
 
-# Dependencies will be mounted from the host via volume in dev compose,
-# but we pre-install them so the image is self-contained if needed.
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json package-lock.json ./
 

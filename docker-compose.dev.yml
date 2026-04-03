@@ -5,7 +5,7 @@
 #  Features:
 #    - Next.js dev server with hot-reload on port 3001
 #    - Source files mounted from host → changes reflect instantly
-#    - node_modules inside container (avoids host/container conflicts)
+#    - PostgreSQL on port 5432
 # =============================================================================
 
 name: celebrity-quiz
@@ -20,19 +20,24 @@ services:
     image: ${IMAGE_NAME:-celebrity-quiz}:dev
     container_name: celebrity-quiz-dev
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     ports:
       - "${DEV_PORT:-3001}:3000"
     environment:
       - NODE_ENV=development
       - NEXT_TELEMETRY_DISABLED=1
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-celebrity_quiz}?schema=public
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-dev-secret-change-me}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3001}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
       - TZ=${TZ:-Europe/Paris}
-      - WATCHPACK_POLLING=${WATCHPACK_POLLING:-false}  # set to true on WSL2
+      - WATCHPACK_POLLING=${WATCHPACK_POLLING:-false}
     volumes:
-      # Mount source code — hot-reload picks up changes immediately
       - .:/app
-      # Prevent host node_modules from overwriting container's
       - /app/node_modules
-      # Persist Next.js build cache across restarts
       - nextjs-cache:/app/.next
     networks:
       - web

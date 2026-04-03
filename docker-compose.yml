@@ -7,12 +7,32 @@ name: celebrity-quiz
 
 services:
 
-  # ── Web app (nginx + static export) ────────────────────────────────────────
+  # ── PostgreSQL database ─────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: celebrity-quiz-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-celebrity_quiz}
+      TZ: ${TZ:-Europe/Paris}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-celebrity_quiz}"]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 5
+
+  # ── Next.js app (Node.js server) ────────────────────────────────────────────
   app:
     build:
       context: .
       dockerfile: Dockerfile
-      target: runner          # only build the production stage
       cache_from:
         - type=local,src=/tmp/.buildx-cache
       cache_to:
@@ -20,17 +40,26 @@ services:
     image: ${IMAGE_NAME:-celebrity-quiz}:${IMAGE_TAG:-latest}
     container_name: celebrity-quiz-app
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     ports:
-      - "${PORT:-3000}:80"
+      - "${PORT:-3000}:3000"
     environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-celebrity_quiz}?schema=public
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-change-me-in-production}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3000}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
       - TZ=${TZ:-Europe/Paris}
     networks:
       - web
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost/index.html"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/auth/session"]
       interval: 30s
       timeout: 5s
-      start_period: 10s
+      start_period: 30s
       retries: 3
     labels:
       # Traefik labels (optional — remove if not using Traefik)
@@ -38,7 +67,11 @@ services:
       - "traefik.http.routers.celebrity-quiz.rule=Host(`${DOMAIN:-localhost}`)"
       - "traefik.http.routers.celebrity-quiz.entrypoints=websecure"
       - "traefik.http.routers.celebrity-quiz.tls.certresolver=letsencrypt"
-      - "traefik.http.services.celebrity-quiz.loadbalancer.server.port=80"
+      - "traefik.http.services.celebrity-quiz.loadbalancer.server.port=3000"
+
+volumes:
+  postgres_data:
+    name: celebrity-quiz-postgres-data
 
 networks:
   web:

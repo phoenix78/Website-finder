@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 import type { GameSession } from '@/types/game'
 import { getGameGrade } from '@/engine/scoreEngine'
 import { saveScore } from '@/lib/leaderboard'
@@ -21,6 +22,7 @@ interface ResultScreenProps {
 
 export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
   const { t } = useT()
+  const { data: authSession } = useSession()
   const correct = session.answers.filter((a) => a.correct).length
   const total   = session.answers.length
   const grade   = getGameGrade(correct, total)
@@ -30,6 +32,7 @@ export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
   const savedRef = useRef<LeaderboardEntry | null>(null)
   useEffect(() => {
     if (!savedRef.current) {
+      // Always save to localStorage (guests + logged-in users)
       savedRef.current = saveScore({
         score: session.score,
         grade: grade.letter,
@@ -40,6 +43,26 @@ export function ResultScreen({ session, onPlayAgain }: ResultScreenProps) {
         maxStreak: session.maxStreak,
         mode: 'classic',
       })
+
+      // Also save to database if authenticated
+      if (authSession?.user?.id) {
+        fetch('/api/scores', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            score: session.score,
+            grade: grade.letter,
+            variant: session.variant,
+            difficulty: session.difficulty,
+            category: session.category,
+            correct,
+            total,
+            maxStreak: session.maxStreak,
+            avgTime,
+            mode: 'classic',
+          }),
+        }).catch(() => {/* non-blocking */})
+      }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
